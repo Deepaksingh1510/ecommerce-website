@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import productsData from "./../data/ProductData.json";
 import { AiOutlineMinus } from "react-icons/ai";
 import { BsPlus } from "react-icons/bs";
@@ -24,10 +24,10 @@ function ProductInfo({ id }: Props) {
   }
 
   // Update the price whenever quantity changes
-  const updatedPrice = (newQuantity: number) => {
-    const newPrice = product.price * newQuantity;
+  useEffect(() => {
+    const newPrice = product.price * quantity;
     setPrice(newPrice);
-  };
+  }, [product.price, quantity]);
 
   const handleImageHover = (imageUrl: string) => {
     setHoveredImage(imageUrl);
@@ -36,17 +36,14 @@ function ProductInfo({ id }: Props) {
   const addQuantity = () => {
     const newQuantity = quantity + 1;
     setQuantity(newQuantity);
-    updatedPrice(newQuantity);
   };
 
   const subtractQuantity = () => {
     if (quantity > 1) {
       const newQuantity = quantity - 1;
       setQuantity(newQuantity);
-      updatedPrice(newQuantity);
     }
   };
-
   const addItemtoCart = () => {
     const item = {
       id: product.id,
@@ -67,7 +64,7 @@ function ProductInfo({ id }: Props) {
         <div className=" flex flex-col md:col-span-1 row-span-1 justify-center items-center borderborder-gray-200 bg-gray-100">
           <img
             className="md:h-[380px] h-[350px] "
-            src={hoveredImage}
+            src={hoveredImage || product.mainImageUrl}
             alt={"main"}
           />
           <div className="grid grid-cols-3 h-[100px] w-[300px]">
