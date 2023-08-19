@@ -1,4 +1,4 @@
-/* "use client";
+"use client";
 import React, { useState } from "react";
 import productsData from "./../data/ProductData.json";
 import { AiOutlineMinus } from "react-icons/ai";
@@ -149,4 +149,3 @@ function ProductInfo({ id }: Props) {
 }
 
 export default ProductInfo;
- */
