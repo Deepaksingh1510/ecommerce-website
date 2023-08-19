@@ -53,7 +53,7 @@ function ProductInfo({ id }: Props) {
       price: product.price,
       mainImageUrl: product.mainImageUrl,
       quantity: quantity,
-      totalPrice: price,
+      totalPrice: product.price * quantity,
     };
     dispatch(addtoCart(item));
   };
