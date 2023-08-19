@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "title": "Iphone14",
+    "price": 849,
+    "mainImageUrl": "https://www.freeiconspng.com/thumbs/iphone-x-pictures/apple-iphone-x-pictures-5.png",
+    "secondImageUrl": "/Iphone-1.png",
+    "thirdImageUrl": "https://www.pngmart.com/files/22/iPhone-14-PNG-Clipart.png",
+    "details": "With Apple iPhone 14 in your pocket, anything the day throws at you is a little bit easier. The A15 Bionic chip beating in its chest can run any app or game without breaking a sweat. Everything's a treat to look at on the 6.1 , Super Retina XDR display – from maps to Apple TV Shows. The 12 MP dual camera system will help you capture significant (and insignificant) moments in amazing detail and life-like colours. And with up to 20 hours of battery life you can just go on. And on. And on."
+  },
+  {
+    "id": 2,
+    "title": "Toaster",
+    "price": 29.99,
+    "mainImageUrl": "/Toaster.png",
+    "secondImageUrl": "https://i.pinimg.com/564x/11/5d/6c/115d6cfef82863432df0079b019a8507.jpg",
+    "thirdImageUrl": "https://i.pinimg.com/564x/f1/3e/fa/f13efa79ab4a7ffe2119bbbd565d60b7.jpg",
+    "details": "Stainless Steel Two Slice Toaster is perfect for making mornings more enjoyable! Featuring a remarkable Lift and Look feature, improved evenness, and browning control, you can always rely on this two-slice toaster to evenly toast your bread, bagels, and more. Plus, its removable crumb tray makes clean-up a breeze."
+  },
+  {
+    "id": 3,
+    "title": "Nike Football",
+    "price": 15,
+    "mainImageUrl": "https://www.pngarts.com/files/2/Football-PNG-Background-Image.png",
+    "secondImageUrl": "https://i.pinimg.com/originals/50/8e/a8/508ea8f7efebdb885119039f8e249a3e.png",
+    "thirdImageUrl": "https://www.pngarts.com/files/2/Football-PNG-Background-Image.png",
+    "details": "Take your game to the next level with the Premier League Skills Football. It's smaller in size, making it ideal for practicing and developing your footwork. Machine-stitched casing optimizes shape, feel and durability. Rubber bladder helps maintain air pressure and shape. Size 1 ball is perfect for skill development for all ages."
+  },
+  {
+    "id": 4,
+    "title": "Acer Laptop",
+    "price": 599.0,
+    "mainImageUrl": "https://www.transparentpng.com/thumb/laptop/YmlelI-laptops-png-images-notebook-png-image-laptop.png",
+    "secondImageUrl": "/laptop.png",
+    "thirdImageUrl": "https://www.cnet.com/a/img/resize/0f66ba2206f54bf8a9a289fe47c1742352382bbc/hub/2020/04/24/e3971252-0dd1-4741-9dfc-06ca462237fe/acer-aspire-7-0006.jpg?auto=webp&fit=crop&height=1200&width=1200",
+    "details": "Work hard. Play hard. The high-performance Acer Aspire 7 laptop is powered by the latest 12th Gen Intel® Core™ processors with GeForce RTX™ 30 Series graphics for performance in application or entertainment. Maximize efficiency with performance-grade thermal solutions and comprehensive connectivity options."
+  },
+  {
+    "id": 5,
+    "title": "Mon Guerlain",
+    "price": 94.0,
+    "mainImageUrl": "https://www.freepnglogos.com/uploads/perfume-png/perfume-mon-guerlain-guerlain-7.png",
+    "secondImageUrl": "https://www.guerlain.com/dw/image/v2/BDCZ_PRD/on/demandware.static/-/Sites-GSA_master_catalog/default/dwc77ad64f/primary_packshot_3/2022/Fragrance/Mon_Guerlain/G013139_3346470131392_MON-G-17-EDP-50ML-SPR.png?sw=900&sh=900",
+    "thirdImageUrl": "https://www.guerlain.com/dw/image/v2/BDCZ_PRD/on/demandware.static/-/Sites-GSA_master_catalog/default/dwa80e7e66/primary_packshot_3/2022/Fragrance/Mon_Guerlain/G013781_3346470137813_MON-G-19-INTSE-EDP-50ML-SPR.png?sw=700&sh=700",
+    "details": "Mon Guerlain, the House's new fragrance, is a tribute to today’s femininity a strong, free and sensual femininity, as inspired by Angelina Jolie."
+  },
+  {
+    "id": 6,
+    "title": "JOKKMOKK",
+    "price": 179,
+    "mainImageUrl": "/table.png",
+    "secondImageUrl": "https://www.ikea.com/gb/en/images/products/jokkmokk-table-and-4-chairs-antique-stain__0870896_pe594898_s5.jpg?f=xl",
+    "thirdImageUrl": "https://www.ikea.com/gb/en/images/products/jokkmokk-table-and-4-chairs-antique-stain__0870916_pe716638_s5.jpg?f=xl",
+    "details": "A simple and sturdy set that’s perfect for your breakfast nook or smaller dining area. The solid pine holds up well over time and will endure all the family meals and activities around the table."
+  },
+  {
+    "id": 7,
+    "title": "Astrox 88d Pro",
+    "price": 1000,
+    "mainImageUrl": "/Racket.png",
+    "secondImageUrl": "/Racket-1.png",
+    "thirdImageUrl": "/Racket-2.png",
+    "details": "Yonex Astrox 88D Pro Badminton Racket (Camel Gold) with a stiff, 10mm longer shaft and head-heavy balance, has been designed for the Dominant, back-court player. This longer shaft attribute results in a racket that gives lots of attacking power and is great for those who want to deliver a powerful smash."
+  },
+  {
+    "id": 8,
+    "title": "Blue de Chanel",
+    "price": 1000,
+    "mainImageUrl": "/Perfume-men.png",
+    "secondImageUrl": "https://i.pinimg.com/originals/50/8e/a8/508ea8f7efebdb885119039f8e249a3e.png",
+    "thirdImageUrl": "https://www.pngarts.com/files/2/Football-PNG-Background-Image.png",
+    "details": "Mon Guerlain, the House's new fragrance, is a tribute to today’s femininity a strong, free and sensual femininity, as inspired by Angelina Jolie."
+  }
+]
