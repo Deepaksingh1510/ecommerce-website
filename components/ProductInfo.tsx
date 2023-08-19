@@ -24,10 +24,10 @@ function ProductInfo({ id }: Props) {
   }
 
   // Update the price whenever quantity changes
-  useEffect(() => {
-    const newPrice = product.price * quantity;
+  const updatedPrice = (newQuantity: number) => {
+    const newPrice = product.price * newQuantity;
     setPrice(newPrice);
-  }, [product.price, quantity]);
+  };
 
   const handleImageHover = (imageUrl: string) => {
     setHoveredImage(imageUrl);
@@ -36,12 +36,14 @@ function ProductInfo({ id }: Props) {
   const addQuantity = () => {
     const newQuantity = quantity + 1;
     setQuantity(newQuantity);
+    updatedPrice(newQuantity);
   };
 
   const subtractQuantity = () => {
     if (quantity > 1) {
       const newQuantity = quantity - 1;
       setQuantity(newQuantity);
+      updatedPrice(newQuantity);
     }
   };
   const addItemtoCart = () => {
@@ -124,7 +126,9 @@ function ProductInfo({ id }: Props) {
               </div>
             </div>
             <div>
-              <h1 className=" sm:text-xl text-lg font-semibold">£{price}</h1>
+              <h1 className="sm:text-xl text-lg font-semibold">
+                £{price !== 0 ? price : product.price}
+              </h1>
             </div>
           </div>
           <div className="flex flex-row space-x-20 mt-6">
