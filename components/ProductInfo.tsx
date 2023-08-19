@@ -10,21 +10,27 @@ type Props = { id: string };
 function ProductInfo({ id }: Props) {
   const dispatch = useDispatch();
   const [quantity, setQuantity] = useState(1);
+
   // Find the product with the matching id
   const product = productsData.find(
     (product) => product.id === parseInt(id, 10)
   );
+
+  // Check if product exists
   if (!product) {
     return <div>Product not found</div>;
   }
 
+  // Use the product object to initialize other state variables
   const [price, setPrice] = useState(product.price);
   const [hoveredImage, setHoveredImage] = useState(product.mainImageUrl);
+
   const addQuantity = () => {
     const newQuantity = quantity + 1;
     setQuantity(newQuantity);
     updatedPrice(newQuantity);
   };
+
   const subtractQuantity = () => {
     if (quantity > 1) {
       const newQuantity = quantity - 1;
@@ -32,6 +38,7 @@ function ProductInfo({ id }: Props) {
       updatedPrice(newQuantity);
     }
   };
+
   const updatedPrice = (newQuantity: number) => {
     const newPrice = product.price * newQuantity;
     setPrice(newPrice);
@@ -40,14 +47,14 @@ function ProductInfo({ id }: Props) {
   const handleImageHover = (imageUrl: string) => {
     setHoveredImage(imageUrl);
   };
+
   const addItemtoCart = () => {
     const item = {
       id: product.id,
       title: product.title,
-
       price: product.price,
       mainImageUrl: product.mainImageUrl,
-      quantity: quantity, // You might want to add the quantity too
+      quantity: quantity,
       totalPrice: price,
     };
     dispatch(addtoCart(item));
