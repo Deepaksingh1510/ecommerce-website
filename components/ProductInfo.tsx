@@ -8,6 +8,8 @@ import { addtoCart } from "@/slices/cartSlice";
 type Props = { id: string };
 
 function ProductInfo({ id }: Props) {
+  const dispatch = useDispatch();
+  const [quantity, setQuantity] = useState(1);
   // Find the product with the matching id
   const product = productsData.find(
     (product) => product.id === parseInt(id, 10)
@@ -15,8 +17,7 @@ function ProductInfo({ id }: Props) {
   if (!product) {
     return <div>Product not found</div>;
   }
-  const dispatch = useDispatch();
-  const [quantity, setQuantity] = useState(1);
+
   const [price, setPrice] = useState(product.price);
   const [hoveredImage, setHoveredImage] = useState(product.mainImageUrl);
   const addQuantity = () => {
