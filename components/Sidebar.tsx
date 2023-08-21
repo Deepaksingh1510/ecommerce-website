@@ -2,13 +2,18 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { IoMdCart } from "react-icons/io";
 import { useSelector } from "react-redux";
-import { selectItems } from "@/slices/cartSlice";
 import { AiOutlineMinus } from "react-icons/ai";
 import { BsPlus } from "react-icons/bs";
 import { IoCloseSharp } from "react-icons/io5";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { useDispatch } from "react-redux";
-import { incrementQuantity, decrementQuantity } from "@/slices/cartSlice";
+import {
+  removefromCart,
+  incrementQuantity,
+  decrementQuantity,
+  selectItems,
+} from "@/slices/cartSlice";
+import { toast } from "react-toastify";
 
 type Props = { onClose: () => void; isOpen: boolean };
 
@@ -16,20 +21,19 @@ function Sidebar({ onClose, isOpen }: Props) {
   const dispatch = useDispatch();
   const items = useSelector(selectItems);
   const subtotal = items.reduce((total, item) => total + item.totalPrice, 0);
-
   return (
     <>
       {/* Dark overlay */}
       {isOpen && (
         <div
-          className="fixed inset-0 bg-black opacity-50 z-10"
+          className="fixed top-0 left-0 right-0 bottom-0 w-full h-screen bg-black opacity-50 z-[200]"
           onClick={onClose}
         />
       )}
       {/* Sidebar */}
       <div
-        className={`fixed top-0 right-0 h-full md:w-[550px] w-full shadow-lg bg-white transition-transform z-30 ${
-          isOpen ? "translate-x-0" : "translate-x-full"
+        className={`fixed top-0 right-0 h-full md:w-[550px] w-full shadow-lg bg-white transition-transform z-[400] ${
+          isOpen ? "translate-x-0" : "translate-x-full z-[400]"
         }`}
       >
         <div className="bg-white z-20">
@@ -82,7 +86,26 @@ function Sidebar({ onClose, isOpen }: Props) {
                           <BsPlus size={24} color="white" />
                         </div>
                       </div>
-                      <RiDeleteBin6Line className="mr-10" size={28} />
+                      <div
+                        onClick={() => {
+                          dispatch(removefromCart(item.id));
+                          toast.success("Item removed from Cart", {
+                            position: "top-center",
+                            autoClose: 2000,
+                            hideProgressBar: false,
+                            closeOnClick: true,
+                            pauseOnHover: true,
+                            draggable: true,
+                            progress: undefined,
+                            theme: "light",
+                          });
+                        }}
+                      >
+                        <RiDeleteBin6Line
+                          className="mr-10 cursor-pointer"
+                          size={28}
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>

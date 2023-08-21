@@ -37,7 +37,14 @@ export const cartSlice = createSlice({
       }
     },
     removefromCart: (state, action: PayloadAction<number>) => {
-      // You can implement the removal logic here
+      const itemIdToRemove = action.payload;
+      const itemIndex = state.items.findIndex(
+        (item) => item.id === itemIdToRemove
+      );
+
+      if (itemIndex !== -1) {
+        state.items.splice(itemIndex, 1);
+      }
     },
     incrementQuantity: (state, action) => {
       const { itemId } = action.payload;

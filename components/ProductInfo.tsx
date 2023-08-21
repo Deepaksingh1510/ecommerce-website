@@ -4,7 +4,9 @@ import productsData from "./../data/ProductData.json";
 import { AiOutlineMinus } from "react-icons/ai";
 import { BsPlus } from "react-icons/bs";
 import { useDispatch } from "react-redux";
-import { addtoCart } from "@/slices/cartSlice";
+import { addtoCart, selectItems } from "@/slices/cartSlice";
+import { store } from "@/app/store";
+import { toast } from "react-toastify";
 type Props = { id: string };
 
 function ProductInfo({ id }: Props) {
@@ -56,6 +58,19 @@ function ProductInfo({ id }: Props) {
       totalPrice: product.price * quantity,
     };
     dispatch(addtoCart(item));
+    toast.success("Added to Cart", {
+      position: "top-center",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+  };
+  const handleClear = () => {
+    localStorage.clear();
   };
   return (
     <div className="justify-start p-3 mt-12 max-w-7xl mx-auto ">
@@ -138,7 +153,10 @@ function ProductInfo({ id }: Props) {
             >
               <p className=" text-lg font-medium">Add to cart</p>
             </div>
-            <div className="flex justify-center items-center h-12 w-[120px] bg-black hover:bg-white hover:text-black text-white hover:border-2 hover:border-black">
+            <div
+              onClick={handleClear}
+              className="flex justify-center items-center h-12 w-[120px] hover:bg-red-700 bg-white text-red-700 hover:text-white hover:border-white border-2 hover:border-0 border-red-700"
+            >
               <p className=" text-lg font-medium">Buy Now</p>
             </div>
           </div>
