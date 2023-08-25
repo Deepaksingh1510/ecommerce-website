@@ -1,10 +1,12 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import productsData from "./../data/ProductData.json";
 import { useRouter } from "next/navigation";
 type Props = { category: string };
 
 function CategoryGrid({ category }: Props) {
   const router = useRouter(); // Use the useNavigation hook
+  const [selectedProduct, setSelectedProduct] = useState(null);
   const navigateToCategoryHome = () => {
     router.push("/category/Home"); // Function to navigate
   };
@@ -23,6 +25,11 @@ function CategoryGrid({ category }: Props) {
   const navigateToCategoryAll = () => {
     router.push("/category/All"); // Function to navigate
   };
+  const handleProductClick = (relatedProduct: any) => {
+    setSelectedProduct(relatedProduct);
+    router.push(`/products/${relatedProduct.id}`);
+  };
+
   let displayedProducts = productsData;
 
   if (category !== "All") {
@@ -95,6 +102,7 @@ function CategoryGrid({ category }: Props) {
           {displayedProducts.map((relatedProduct) => (
             <div
               key={relatedProduct.id}
+              onClick={() => handleProductClick(relatedProduct)}
               className="flex flex-col shadow-lg md:h-[350px] h-[200px] w-full border-2 bg-white hover:border-gray-800 hover:scale-105 duration-200 cursor-pointer border-gray-400 justify-center items-center"
             >
               <h3 className="text-center mb-4">{relatedProduct.title}</h3>
