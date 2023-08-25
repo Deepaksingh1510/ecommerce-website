@@ -6,16 +6,20 @@ import { useSelector } from "react-redux";
 import { selectItems } from "@/slices/cartSlice";
 import Sidebar from "@/components/Sidebar";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 type Props = {};
 
 function Header({}: Props) {
+  const router = useRouter(); // Use the useNavigation hook
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const items = useSelector(selectItems);
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
-
+  const navigateToCategoryAll = () => {
+    router.push("/category/All"); // Function to navigate
+  };
   return (
     <div
       className={`w-full bg-white text-black sticky shadow-lg ${
@@ -38,12 +42,12 @@ function Header({}: Props) {
           <Link href={"/"}>
             <div className="headerbtn mt-1">Home</div>
           </Link>
-          <Link href={"/sale"}>
-            <div className="headerbtn mt-1">Sale</div>
-          </Link>
-          <Link href={"/all-products"}>
-            <div className="headerbtn mt-1">Products</div>
-          </Link>
+          <div className="headerbtn mt-1">Sale</div>
+
+          <div onClick={navigateToCategoryAll} className="headerbtn mt-1">
+            Products
+          </div>
+
           <div className="px-4 flex relative">
             <IoCartSharp
               size={28}

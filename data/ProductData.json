@@ -25,7 +25,7 @@
     "category": "Sports",
     "price": 15,
     "mainImageUrl": "https://www.pngarts.com/files/2/Football-PNG-Background-Image.png",
-    "secondImageUrl": "https://i.pinimg.com/originals/50/8e/a8/508ea8f7efebdb885119039f8e249a3e.png",
+    "secondImageUrl": "https://www.pngarts.com/files/2/Football-PNG-Background-Image.png",
     "thirdImageUrl": "https://www.pngarts.com/files/2/Football-PNG-Background-Image.png",
     "details": "Take your game to the next level with the Premier League Skills Football. It's smaller in size, making it ideal for practicing and developing your footwork. Machine-stitched casing optimizes shape, feel and durability. Rubber bladder helps maintain air pressure and shape. Size 1 ball is perfect for skill development for all ages."
   },
@@ -91,46 +91,16 @@
   },
   {
     "id": 10,
-    "title": "Acer Laptop",
-    "category": "Tech",
-    "price": 599.0,
-    "mainImageUrl": "https://www.transparentpng.com/thumb/laptop/YmlelI-laptops-png-images-notebook-png-image-laptop.png",
-    "secondImageUrl": "/Laptop.png",
-    "thirdImageUrl": "https://www.cnet.com/a/img/resize/0f66ba2206f54bf8a9a289fe47c1742352382bbc/hub/2020/04/24/e3971252-0dd1-4741-9dfc-06ca462237fe/acer-aspire-7-0006.jpg?auto=webp&fit=crop&height=1200&width=1200",
-    "details": "Work hard. Play hard. The high-performance Acer Aspire 7 laptop is powered by the latest 12th Gen Intel® Core™ processors with GeForce RTX™ 30 Series graphics for performance in application or entertainment. Maximize efficiency with performance-grade thermal solutions and comprehensive connectivity options."
-  },
-  {
-    "id": 11,
-    "title": "Acer Laptop",
-    "category": "Tech",
-    "price": 599.0,
-    "mainImageUrl": "https://www.transparentpng.com/thumb/laptop/YmlelI-laptops-png-images-notebook-png-image-laptop.png",
-    "secondImageUrl": "/Laptop.png",
-    "thirdImageUrl": "https://www.cnet.com/a/img/resize/0f66ba2206f54bf8a9a289fe47c1742352382bbc/hub/2020/04/24/e3971252-0dd1-4741-9dfc-06ca462237fe/acer-aspire-7-0006.jpg?auto=webp&fit=crop&height=1200&width=1200",
-    "details": "Work hard. Play hard. The high-performance Acer Aspire 7 laptop is powered by the latest 12th Gen Intel® Core™ processors with GeForce RTX™ 30 Series graphics for performance in application or entertainment. Maximize efficiency with performance-grade thermal solutions and comprehensive connectivity options."
-  },
-  {
-    "id": 12,
-    "title": "Acer Laptop",
-    "category": "Tech",
-    "price": 599.0,
-    "mainImageUrl": "https://www.transparentpng.com/thumb/laptop/YmlelI-laptops-png-images-notebook-png-image-laptop.png",
-    "secondImageUrl": "/Laptop.png",
-    "thirdImageUrl": "https://www.cnet.com/a/img/resize/0f66ba2206f54bf8a9a289fe47c1742352382bbc/hub/2020/04/24/e3971252-0dd1-4741-9dfc-06ca462237fe/acer-aspire-7-0006.jpg?auto=webp&fit=crop&height=1200&width=1200",
-    "details": "Work hard. Play hard. The high-performance Acer Aspire 7 laptop is powered by the latest 12th Gen Intel® Core™ processors with GeForce RTX™ 30 Series graphics for performance in application or entertainment. Maximize efficiency with performance-grade thermal solutions and comprehensive connectivity options."
-  },
-  {
-    "id": 13,
     "title": "Wireless Earbuds",
     "category": "Tech",
-    "price": 79.99,
-    "mainImageUrl": "https://www.pngkit.com/png/full/100-1004565_tws-bluetooth-earbuds-png-headphones.png",
-    "secondImageUrl": "/Wireless-Earbuds-1.png",
-    "thirdImageUrl": "https://www.pngkit.com/png/full/100-1004565_tws-bluetooth-earbuds-png-headphones.png",
+    "price": 149.99,
+    "mainImageUrl": "https://assets.stickpng.com/images/60b79e8771a1fd000411f6be.png",
+    "secondImageUrl": "https://static-www.o2.co.uk/sites/default/files/airpods-pro-2nd-gen-sku-header-070922.png",
+    "thirdImageUrl": "https://image-cdn.hypb.st/https%3A%2F%2Fhypebeast.com%2Fimage%2F2023%2F03%2Fapple-rumored-to-release-airpods-pro-2-usb-c-charging-port-info-000.jpg?w=960&cbr=1&q=90&fit=max",
     "details": "Experience immersive sound with these wireless earbuds. Enjoy high-quality audio, long battery life, and comfortable fit for all-day use."
   },
   {
-    "id": 14,
+    "id": 11,
     "title": "Running Shoes",
     "category": "Sports",
     "price": 129.99,
@@ -140,13 +110,13 @@
     "details": "Elevate your running game with these performance-oriented running shoes. Designed for comfort, support, and durability to help you achieve your fitness goals."
   },
   {
-    "id": 15,
+    "id": 12,
     "title": "Smart Watch",
     "category": "Tech",
     "price": 199.99,
-    "mainImageUrl": "https://www.freepnglogos.com/uploads/smart-watch-png/smart-watch-transparent-images-png-16.png",
-    "secondImageUrl": "https://www.pngmart.com/files/8/Smart-Watch-PNG-HD-Image.png",
-    "thirdImageUrl": "/Smart-Watch-1.png",
+    "mainImageUrl": "https://www.pngplay.com/wp-content/uploads/9/Apple-Watch-Transparent-Background.png",
+    "secondImageUrl": "https://images.wsj.net/im-618170?width=1280&size=1",
+    "thirdImageUrl": "https://support.apple.com/library/APPLE/APPLECARE_ALLGEOS/SP877/apple-watch-se-2nd-gen.png",
     "details": "Stay connected and track your activities with this advanced smartwatch. Monitor your health, receive notifications, and customize your watch face."
   }
 ]

@@ -18,7 +18,7 @@ function Hero({}: Props) {
     router.push("/category/Kitchen"); // Function to navigate
   };
   return (
-    <div className="grid md:grid-cols-4 grid-cols-2 gap-3 max-w-7xl mx-auto mt-5 ">
+    <div className="grid md:grid-cols-4 grid-cols-2 gap-3 max-w-7xl mx-auto mt-5 px-3 ">
       <div
         onClick={navigateToCategoryHome}
         className="col-span-1 md:col-span-2 hover:scale-[1.03] duration-300 md:max-h-[600px] max-h-[300px] shadow-lg relative cursor-pointer "

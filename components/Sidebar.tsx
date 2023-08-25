@@ -3,7 +3,9 @@ import Image from "next/image";
 import { IoMdCart } from "react-icons/io";
 import { useSelector } from "react-redux";
 import { AiOutlineMinus } from "react-icons/ai";
+import { FaShoppingBasket } from "react-icons/fa";
 import { BsPlus } from "react-icons/bs";
+import { ImPriceTags } from "react-icons/im";
 import { IoCloseSharp } from "react-icons/io5";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { useDispatch } from "react-redux";
@@ -38,12 +40,15 @@ function Sidebar({ onClose, isOpen }: Props) {
       >
         <div className="bg-white z-20">
           <div className="flex justify-between items-center p-3">
-            <h2 className="text-2xl font-semibold">
-              Shopping Cart ({items.length})
-            </h2>
+            <div className="flex flex-row items-center space-x-2">
+              <FaShoppingBasket className="ml-2" size={26} />
+              <h2 className="text-2xl font-semibold mt-1">
+                Shopping Cart ({items.length})
+              </h2>
+            </div>
             <IoCloseSharp onClick={onClose} size={30} color="#6b7280" />
           </div>
-          <div className="px-4 overflow-y-scroll h-[80vh] scrollbar-thin scrollbar-track-rounded-xl scrollbar-thumb-rounded-xl scrollbar-thumb-red-500 scrollbar-track-gray-300">
+          <div className="px-4 overflow-y-scroll h-[75vh] scrollbar-thin scrollbar-track-rounded-xl scrollbar-thumb-rounded-xl scrollbar-thumb-red-500 scrollbar-track-gray-300">
             {/* Render your cart items here */}
             {items.map((item) => (
               <div key={item.id} className="flex flex-col py-2  ">
@@ -112,9 +117,20 @@ function Sidebar({ onClose, isOpen }: Props) {
               </div>
             ))}
           </div>
-          <div className="flex flex-row">
-            <h1>Subtotal</h1>
-            <p className="text-2xl font-bold">£{subtotal}</p>
+          <div className=" flex justify-center items-center ">
+            <span className="border-b-[3px] border-gray-500 px-2 w-[60%] mb-5"></span>
+          </div>
+          <div className="flex flex-row md:px-10 px-8 items-center justify-between">
+            <div className="flex flex-col space-y-1">
+              <h1 className=" font-bold text-2xl">Subtotal</h1>
+              <div className="flex flex-row justify-start items-center space-x-2 text-gray-800">
+                <ImPriceTags size={24} />
+                <p className="text-2xl font-semibold">£{subtotal}</p>
+              </div>
+            </div>
+            <div className="flex justify-center items-center h-12 w-[120px] border-2 hover:bg-white bg-red-600 text-white hover:text-red-600 hover:border-red-600 border-white ">
+              <p className="text-lg font-medium">Checkout</p>
+            </div>
           </div>
         </div>
       </div>
