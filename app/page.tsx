@@ -8,6 +8,7 @@ import ProductsSection from "@/components/ProductsSection";
 import Image from "next/image";
 import { store } from "@/app/store";
 import { Provider } from "react-redux";
+import Sidebar from "@/components/Sidebar";
 export default function Home() {
   return (
     <Provider store={store}>

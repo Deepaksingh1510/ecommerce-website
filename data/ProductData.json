@@ -2,6 +2,7 @@
   {
     "id": 1,
     "title": "Iphone14",
+    "category": "Tech",
     "price": 849,
     "mainImageUrl": "https://www.freeiconspng.com/thumbs/iphone-x-pictures/apple-iphone-x-pictures-5.png",
     "secondImageUrl": "/Iphone-1.png",
@@ -11,6 +12,7 @@
   {
     "id": 2,
     "title": "Toaster",
+    "category": "Kitchen",
     "price": 29.99,
     "mainImageUrl": "/Toaster.png",
     "secondImageUrl": "https://i.pinimg.com/564x/11/5d/6c/115d6cfef82863432df0079b019a8507.jpg",
@@ -20,15 +22,17 @@
   {
     "id": 3,
     "title": "Nike Football",
+    "category": "Sports",
     "price": 15,
     "mainImageUrl": "https://www.pngarts.com/files/2/Football-PNG-Background-Image.png",
-    "secondImageUrl": "https://i.pinimg.com/originals/50/8e/a8/508ea8f7efebdb885119039f8e249a3e.png",
+    "secondImageUrl": "https://www.pngarts.com/files/2/Football-PNG-Background-Image.png",
     "thirdImageUrl": "https://www.pngarts.com/files/2/Football-PNG-Background-Image.png",
     "details": "Take your game to the next level with the Premier League Skills Football. It's smaller in size, making it ideal for practicing and developing your footwork. Machine-stitched casing optimizes shape, feel and durability. Rubber bladder helps maintain air pressure and shape. Size 1 ball is perfect for skill development for all ages."
   },
   {
     "id": 4,
     "title": "Acer Laptop",
+    "category": "Tech",
     "price": 599.0,
     "mainImageUrl": "https://www.transparentpng.com/thumb/laptop/YmlelI-laptops-png-images-notebook-png-image-laptop.png",
     "secondImageUrl": "/Laptop.png",
@@ -38,6 +42,7 @@
   {
     "id": 5,
     "title": "Mon Guerlain",
+    "category": "Fragrance",
     "price": 94.0,
     "mainImageUrl": "https://www.freepnglogos.com/uploads/perfume-png/perfume-mon-guerlain-guerlain-7.png",
     "secondImageUrl": "https://www.guerlain.com/dw/image/v2/BDCZ_PRD/on/demandware.static/-/Sites-GSA_master_catalog/default/dwc77ad64f/primary_packshot_3/2022/Fragrance/Mon_Guerlain/G013139_3346470131392_MON-G-17-EDP-50ML-SPR.png?sw=900&sh=900",
@@ -47,6 +52,7 @@
   {
     "id": 6,
     "title": "JOKKMOKK",
+    "category": "Home",
     "price": 179,
     "mainImageUrl": "/Table.png",
     "secondImageUrl": "https://www.ikea.com/gb/en/images/products/jokkmokk-table-and-4-chairs-antique-stain__0870896_pe594898_s5.jpg?f=xl",
@@ -56,6 +62,7 @@
   {
     "id": 7,
     "title": "Astrox 88d Pro",
+    "category": "Sports",
     "price": 1000,
     "mainImageUrl": "/Racket.png",
     "secondImageUrl": "/Racket-1.png",
@@ -65,10 +72,41 @@
   {
     "id": 8,
     "title": "Blue de Chanel",
+    "category": "Fragrance",
     "price": 1000,
     "mainImageUrl": "/Perfume-men.png",
     "secondImageUrl": "https://i.pinimg.com/originals/50/8e/a8/508ea8f7efebdb885119039f8e249a3e.png",
     "thirdImageUrl": "https://www.pngarts.com/files/2/Football-PNG-Background-Image.png",
     "details": "Mon Guerlain, the House's new fragrance, is a tribute to today’s femininity a strong, free and sensual femininity, as inspired by Angelina Jolie."
+  },
+  {
+    "id": 9,
+    "title": "Wireless Earbuds",
+    "category": "Tech",
+    "price": 149.99,
+    "mainImageUrl": "/Airpods.png",
+    "secondImageUrl": "https://static-www.o2.co.uk/sites/default/files/airpods-pro-2nd-gen-sku-header-070922.png",
+    "thirdImageUrl": "https://image-cdn.hypb.st/https%3A%2F%2Fhypebeast.com%2Fimage%2F2023%2F03%2Fapple-rumored-to-release-airpods-pro-2-usb-c-charging-port-info-000.jpg?w=960&cbr=1&q=90&fit=max",
+    "details": "Experience immersive sound with these wireless earbuds. Enjoy high-quality audio, long battery life, and comfortable fit for all-day use."
+  },
+  {
+    "id": 10,
+    "title": "Running Shoes",
+    "category": "Sports",
+    "price": 129.99,
+    "mainImageUrl": "https://www.fit2run.com/on/demandware.static/-/Sites-fit2run-master-catalog/en_US/dw32b0c3ca/large/Nike/ZoomX%20Infinity%20Run%20Flyknit/3/pink%20foam-bright%20crimson-racer%20blue/wDR2660_pink%20foam-bright%20crimson-racer%20blue_1.png",
+    "secondImageUrl": "/Running-shoe-1.png",
+    "thirdImageUrl": "/Running-shoe-2.png",
+    "details": "Elevate your running game with these performance-oriented running shoes. Designed for comfort, support, and durability to help you achieve your fitness goals."
+  },
+  {
+    "id": 11,
+    "title": "Smart Watch",
+    "category": "Tech",
+    "price": 199.99,
+    "mainImageUrl": "https://www.pngplay.com/wp-content/uploads/9/Apple-Watch-Transparent-Background.png",
+    "secondImageUrl": "https://images.wsj.net/im-618170?width=1280&size=1",
+    "thirdImageUrl": "https://support.apple.com/library/APPLE/APPLECARE_ALLGEOS/SP877/apple-watch-se-2nd-gen.png",
+    "details": "Stay connected and track your activities with this advanced smartwatch. Monitor your health, receive notifications, and customize your watch face."
   }
 ]

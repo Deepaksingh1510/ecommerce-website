@@ -5,20 +5,25 @@ import { IoCartSharp } from "react-icons/io5";
 import { useSelector } from "react-redux";
 import { selectItems } from "@/slices/cartSlice";
 import Sidebar from "@/components/Sidebar";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 type Props = {};
 
 function Header({}: Props) {
+  const router = useRouter(); // Use the useNavigation hook
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const items = useSelector(selectItems);
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
-
+  const navigateToCategoryAll = () => {
+    router.push("/category/All"); // Function to navigate
+  };
   return (
     <div
       className={`w-full bg-white text-black sticky shadow-lg ${
-        isSidebarOpen ? "sidebar-open" : ""
+        isSidebarOpen ? "sidebar-open z-[400]" : ""
       }`}
     >
       <div className="flex flex-col md:flex-row h-auto md:h-20 justify-between items-center p-3 md:p-6 max-w-7xl mx-auto">
@@ -34,9 +39,15 @@ function Header({}: Props) {
           />
         </div>
         <div className="flex">
-          <div className="headerbtn mt-1">Home</div>
+          <Link href={"/"}>
+            <div className="headerbtn mt-1">Home</div>
+          </Link>
           <div className="headerbtn mt-1">Sale</div>
-          <div className="headerbtn mt-1">Products</div>
+
+          <div onClick={navigateToCategoryAll} className="headerbtn mt-1">
+            Products
+          </div>
+
           <div className="px-4 flex relative">
             <IoCartSharp
               size={28}

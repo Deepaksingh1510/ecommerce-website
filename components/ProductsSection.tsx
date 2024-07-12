@@ -1,9 +1,9 @@
-"use client";
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import productsData from "./../data/ProductData.json";
+
 type Props = {};
 
 function ProductsSection({}: Props) {
@@ -15,6 +15,10 @@ function ProductsSection({}: Props) {
     setSelectedProduct(product);
     router.push(`/products/${product.id}`);
   };
+
+  // Limit the number of displayed items to 8
+  const displayedProducts = productsData.slice(0, 8);
+
   return (
     <div className="justify-start p-3 mt-12 max-w-7xl mx-auto ">
       <h1
@@ -23,8 +27,8 @@ function ProductsSection({}: Props) {
         Featured Products
       </h1>
       {/* Products grid */}
-      <div className="grid md:grid-cols-4 sm:grid-cols-3 grid-cols-2 md:gap-5 gap-5 ">
-        {productsData.map((product) => (
+      <div className="grid md:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-5 ">
+        {displayedProducts.map((product) => (
           <div
             key={product.id}
             className="flex flex-col shadow-lg md:h-[350px] h-[200px] w-full border-2 bg-white hover:border-gray-800 hover:scale-105 duration-200 cursor-pointer border-gray-400"
