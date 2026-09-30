@@ -1,112 +1,784 @@
 [
   {
     "id": 1,
-    "title": "Iphone14",
-    "category": "Tech",
-    "price": 849,
-    "mainImageUrl": "https://www.freeiconspng.com/thumbs/iphone-x-pictures/apple-iphone-x-pictures-5.png",
-    "secondImageUrl": "/Iphone-1.png",
-    "thirdImageUrl": "https://www.pngmart.com/files/22/iPhone-14-PNG-Clipart.png",
-    "details": "With Apple iPhone 14 in your pocket, anything the day throws at you is a little bit easier. The A15 Bionic chip beating in its chest can run any app or game without breaking a sweat. Everything's a treat to look at on the 6.1 , Super Retina XDR display – from maps to Apple TV Shows. The 12 MP dual camera system will help you capture significant (and insignificant) moments in amazing detail and life-like colours. And with up to 20 hours of battery life you can just go on. And on. And on."
+    "brand": "Sony",
+    "title": "PlayStation 5 Console",
+    "category": "Gaming",
+    "price": 479.99,
+    "images": [
+      "https://images.unsplash.com/photo-1607853202273-797f1c22a38e",
+      "https://images.unsplash.com/photo-1622297845775-5ff3fef71d13"
+    ],
+    "highlights": [
+      "Ultra-high-speed SSD",
+      "Up to 4K at 120 Hz",
+      "DualSense controller included"
+    ],
+    "details": "Sony's current-generation console, with an ultra-fast SSD that cuts loading times to seconds, ray-traced lighting and 4K output. Comes with a DualSense wireless controller."
   },
   {
     "id": 2,
-    "title": "Toaster",
-    "category": "Kitchen",
-    "price": 29.99,
-    "mainImageUrl": "/Toaster.png",
-    "secondImageUrl": "https://i.pinimg.com/564x/11/5d/6c/115d6cfef82863432df0079b019a8507.jpg",
-    "thirdImageUrl": "https://i.pinimg.com/564x/f1/3e/fa/f13efa79ab4a7ffe2119bbbd565d60b7.jpg",
-    "details": "Stainless Steel Two Slice Toaster is perfect for making mornings more enjoyable! Featuring a remarkable Lift and Look feature, improved evenness, and browning control, you can always rely on this two-slice toaster to evenly toast your bread, bagels, and more. Plus, its removable crumb tray makes clean-up a breeze."
+    "brand": "Sony",
+    "title": "DualSense Wireless Controller",
+    "category": "Gaming",
+    "price": 69.99,
+    "images": [
+      "https://images.unsplash.com/photo-1606144042614-b2417e99c4e3",
+      "detail:https://images.unsplash.com/photo-1606144042614-b2417e99c4e3"
+    ],
+    "highlights": [
+      "Haptic feedback",
+      "Adaptive triggers",
+      "Built-in microphone"
+    ],
+    "details": "The PS5 controller, with haptic feedback you can feel in your palms and adaptive triggers that push back when you draw a bow or brake hard. Built-in microphone and a USB-C charging port."
   },
   {
     "id": 3,
-    "title": "Nike Football",
-    "category": "Sports",
-    "price": 15,
-    "mainImageUrl": "https://www.pngarts.com/files/2/Football-PNG-Background-Image.png",
-    "secondImageUrl": "https://www.pngarts.com/files/2/Football-PNG-Background-Image.png",
-    "thirdImageUrl": "https://www.pngarts.com/files/2/Football-PNG-Background-Image.png",
-    "details": "Take your game to the next level with the Premier League Skills Football. It's smaller in size, making it ideal for practicing and developing your footwork. Machine-stitched casing optimizes shape, feel and durability. Rubber bladder helps maintain air pressure and shape. Size 1 ball is perfect for skill development for all ages."
+    "brand": "Microsoft",
+    "title": "Xbox Series X",
+    "category": "Gaming",
+    "price": 479.99,
+    "images": [
+      "https://images.unsplash.com/photo-1621259182978-fbf93132d53d",
+      "detail:https://images.unsplash.com/photo-1621259182978-fbf93132d53d"
+    ],
+    "highlights": [
+      "4K gaming up to 120 fps",
+      "Quick Resume",
+      "Plays earlier Xbox games"
+    ],
+    "details": "The most powerful Xbox, built for 4K gaming. Quick Resume lets you jump between several suspended games in seconds, and it plays thousands of titles from earlier Xbox generations."
   },
   {
     "id": 4,
-    "title": "Acer Laptop",
-    "category": "Tech",
-    "price": 599.0,
-    "mainImageUrl": "https://www.transparentpng.com/thumb/laptop/YmlelI-laptops-png-images-notebook-png-image-laptop.png",
-    "secondImageUrl": "/Laptop.png",
-    "thirdImageUrl": "https://www.cnet.com/a/img/resize/0f66ba2206f54bf8a9a289fe47c1742352382bbc/hub/2020/04/24/e3971252-0dd1-4741-9dfc-06ca462237fe/acer-aspire-7-0006.jpg?auto=webp&fit=crop&height=1200&width=1200",
-    "details": "Work hard. Play hard. The high-performance Acer Aspire 7 laptop is powered by the latest 12th Gen Intel® Core™ processors with GeForce RTX™ 30 Series graphics for performance in application or entertainment. Maximize efficiency with performance-grade thermal solutions and comprehensive connectivity options."
+    "brand": "Microsoft",
+    "title": "Xbox Wireless Controller",
+    "category": "Gaming",
+    "price": 54.99,
+    "images": [
+      "https://images.unsplash.com/photo-1600080972464-8e5f35f63d08",
+      "detail:https://images.unsplash.com/photo-1600080972464-8e5f35f63d08"
+    ],
+    "highlights": [
+      "Hybrid D-pad",
+      "Share button",
+      "Bluetooth for PC and phone"
+    ],
+    "details": "A textured grip, a hybrid D-pad and a Share button for capturing clips. Works with Xbox consoles, Windows PCs and phones over Bluetooth."
   },
   {
     "id": 5,
-    "title": "Mon Guerlain",
-    "category": "Fragrance",
-    "price": 94.0,
-    "mainImageUrl": "https://www.freepnglogos.com/uploads/perfume-png/perfume-mon-guerlain-guerlain-7.png",
-    "secondImageUrl": "https://www.guerlain.com/dw/image/v2/BDCZ_PRD/on/demandware.static/-/Sites-GSA_master_catalog/default/dwc77ad64f/primary_packshot_3/2022/Fragrance/Mon_Guerlain/G013139_3346470131392_MON-G-17-EDP-50ML-SPR.png?sw=900&sh=900",
-    "thirdImageUrl": "https://www.guerlain.com/dw/image/v2/BDCZ_PRD/on/demandware.static/-/Sites-GSA_master_catalog/default/dwa80e7e66/primary_packshot_3/2022/Fragrance/Mon_Guerlain/G013781_3346470137813_MON-G-19-INTSE-EDP-50ML-SPR.png?sw=700&sh=700",
-    "details": "Mon Guerlain, the House's new fragrance, is a tribute to today’s femininity a strong, free and sensual femininity, as inspired by Angelina Jolie."
+    "brand": "Nintendo",
+    "title": "Nintendo Switch",
+    "category": "Gaming",
+    "price": 279.99,
+    "images": [
+      "https://images.unsplash.com/photo-1578303512597-81e6cc155b3e",
+      "https://images.unsplash.com/photo-1617096200347-cb04ae810b1d"
+    ],
+    "highlights": [
+      "TV, tabletop and handheld",
+      "Detachable Joy-Con",
+      "Two players out of the box"
+    ],
+    "details": "Play on the TV, then lift it out of the dock and keep going in handheld mode. The two Joy-Con controllers slide off the sides for instant two-player games."
   },
   {
     "id": 6,
-    "title": "JOKKMOKK",
-    "category": "Home",
-    "price": 179,
-    "mainImageUrl": "/Table.png",
-    "secondImageUrl": "https://www.ikea.com/gb/en/images/products/jokkmokk-table-and-4-chairs-antique-stain__0870896_pe594898_s5.jpg?f=xl",
-    "thirdImageUrl": "https://www.ikea.com/gb/en/images/products/jokkmokk-table-and-4-chairs-antique-stain__0870916_pe716638_s5.jpg?f=xl",
-    "details": "A simple and sturdy set that’s perfect for your breakfast nook or smaller dining area. The solid pine holds up well over time and will endure all the family meals and activities around the table."
+    "brand": "Meta",
+    "title": "Quest 2 VR Headset",
+    "category": "Gaming",
+    "price": 249.99,
+    "images": [
+      "https://lookaside.fbsbx.com/elementpath/media/?media_id=3193017200856821&version=1772546511&transcode_extension=webp",
+      "https://i0.wp.com/roadtovr.com/wp-content/uploads/2026/09/quest-3.jpg?quality=89&ssl=1"
+    ],
+    "highlights": [
+      "Standalone, no PC needed",
+      "Two Touch controllers",
+      "Hand tracking"
+    ],
+    "details": "A standalone VR headset: no PC, console or cables needed. Two tracked Touch controllers put your hands in the game, from Beat Saber to fitness apps."
   },
   {
     "id": 7,
-    "title": "Astrox 88d Pro",
-    "category": "Sports",
-    "price": 1000,
-    "mainImageUrl": "/Racket.png",
-    "secondImageUrl": "/Racket-1.png",
-    "thirdImageUrl": "/Racket-2.png",
-    "details": "Yonex Astrox 88D Pro Badminton Racket (Camel Gold) with a stiff, 10mm longer shaft and head-heavy balance, has been designed for the Dominant, back-court player. This longer shaft attribute results in a racket that gives lots of attacking power and is great for those who want to deliver a powerful smash."
+    "brand": "Nintendo",
+    "title": "Game Boy Color",
+    "category": "Gaming",
+    "price": 89,
+    "images": [
+      "https://images.unsplash.com/photo-1531525645387-7f14be1bdbbd",
+      "detail:https://images.unsplash.com/photo-1531525645387-7f14be1bdbbd"
+    ],
+    "highlights": [
+      "Plays GB and GBC cartridges",
+      "Runs on two AA batteries",
+      "Tested and cleaned"
+    ],
+    "details": "The 1998 handheld in Dandelion yellow, tested and cleaned. Plays original Game Boy and Game Boy Color cartridges on two AA batteries."
   },
   {
     "id": 8,
-    "title": "Blue de Chanel",
-    "category": "Fragrance",
-    "price": 1000,
-    "mainImageUrl": "/Perfume-men.png",
-    "secondImageUrl": "https://i.pinimg.com/originals/50/8e/a8/508ea8f7efebdb885119039f8e249a3e.png",
-    "thirdImageUrl": "https://www.pngarts.com/files/2/Football-PNG-Background-Image.png",
-    "details": "Mon Guerlain, the House's new fragrance, is a tribute to today’s femininity a strong, free and sensual femininity, as inspired by Angelina Jolie."
+    "brand": "Logitech G",
+    "title": "G305 Lightspeed Wireless Mouse",
+    "category": "Gaming",
+    "price": 44.99,
+    "images": [
+      "https://images.unsplash.com/photo-1527814050087-3793815479db",
+      "detail:https://images.unsplash.com/photo-1527814050087-3793815479db"
+    ],
+    "highlights": [
+      "HERO sensor",
+      "Lightspeed wireless",
+      "Up to 250 hours per AA battery"
+    ],
+    "details": "A light wireless gaming mouse with Logitech's HERO sensor and a low-latency Lightspeed receiver. Runs for months on a single AA battery."
   },
   {
     "id": 9,
-    "title": "Wireless Earbuds",
+    "brand": "Apple",
+    "title": "AirPods Max",
     "category": "Tech",
-    "price": 149.99,
-    "mainImageUrl": "/Airpods.png",
-    "secondImageUrl": "https://static-www.o2.co.uk/sites/default/files/airpods-pro-2nd-gen-sku-header-070922.png",
-    "thirdImageUrl": "https://image-cdn.hypb.st/https%3A%2F%2Fhypebeast.com%2Fimage%2F2023%2F03%2Fapple-rumored-to-release-airpods-pro-2-usb-c-charging-port-info-000.jpg?w=960&cbr=1&q=90&fit=max",
-    "details": "Experience immersive sound with these wireless earbuds. Enjoy high-quality audio, long battery life, and comfortable fit for all-day use."
+    "price": 499,
+    "images": [
+      "https://images.unsplash.com/photo-1613040809024-b4ef7ba99bc3",
+      "detail:https://images.unsplash.com/photo-1613040809024-b4ef7ba99bc3"
+    ],
+    "highlights": [
+      "Active Noise Cancellation",
+      "Spatial audio",
+      "Up to 20 hours of battery"
+    ],
+    "details": "Over-ear headphones with active noise cancellation, Transparency mode and spatial audio. A knit-mesh canopy and memory-foam ear cushions spread the weight for long listening."
   },
   {
     "id": 10,
-    "title": "Running Shoes",
-    "category": "Sports",
-    "price": 129.99,
-    "mainImageUrl": "https://www.fit2run.com/on/demandware.static/-/Sites-fit2run-master-catalog/en_US/dw32b0c3ca/large/Nike/ZoomX%20Infinity%20Run%20Flyknit/3/pink%20foam-bright%20crimson-racer%20blue/wDR2660_pink%20foam-bright%20crimson-racer%20blue_1.png",
-    "secondImageUrl": "/Running-shoe-1.png",
-    "thirdImageUrl": "/Running-shoe-2.png",
-    "details": "Elevate your running game with these performance-oriented running shoes. Designed for comfort, support, and durability to help you achieve your fitness goals."
+    "brand": "Sony",
+    "title": "WH-1000XM4 Headphones",
+    "category": "Tech",
+    "price": 249,
+    "images": [
+      "https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb",
+      "https://images.unsplash.com/photo-1546435770-a3e426bf472b"
+    ],
+    "highlights": [
+      "Industry-leading noise cancelling",
+      "Up to 30 hours of battery",
+      "Speak-to-Chat"
+    ],
+    "details": "Industry-leading noise cancellation, up to 30 hours of battery and Speak-to-Chat, which pauses your music when you start talking. Folds flat into the included case."
   },
   {
     "id": 11,
-    "title": "Smart Watch",
+    "brand": "Apple",
+    "title": "AirPods",
     "category": "Tech",
-    "price": 199.99,
-    "mainImageUrl": "https://www.pngplay.com/wp-content/uploads/9/Apple-Watch-Transparent-Background.png",
-    "secondImageUrl": "https://images.wsj.net/im-618170?width=1280&size=1",
-    "thirdImageUrl": "https://support.apple.com/library/APPLE/APPLECARE_ALLGEOS/SP877/apple-watch-se-2nd-gen.png",
-    "details": "Stay connected and track your activities with this advanced smartwatch. Monitor your health, receive notifications, and customize your watch face."
+    "price": 129,
+    "images": [
+      "https://images.unsplash.com/photo-1600294037681-c80b4cb5b434",
+      "https://images.unsplash.com/photo-1629367494173-c78a56567877"
+    ],
+    "highlights": [
+      "Automatic pairing with iPhone",
+      "Double-tap controls",
+      "Charging case included"
+    ],
+    "details": "Pop the case open and they connect to your iPhone automatically. Double-tap for Siri, and the charging case holds several extra charges."
+  },
+  {
+    "id": 12,
+    "brand": "Apple",
+    "title": "Apple Watch",
+    "category": "Tech",
+    "price": 399,
+    "images": [
+      "https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d",
+      "https://images.unsplash.com/photo-1551816230-ef5deaed4a26"
+    ],
+    "highlights": [
+      "Heart rate and workout tracking",
+      "Notifications at a glance",
+      "Apple Pay from your wrist"
+    ],
+    "details": "Tracks workouts, heart rate and sleep, shows notifications at a glance and lets you pay with a tap of the wrist. Bands swap in seconds."
+  },
+  {
+    "id": 13,
+    "brand": "Apple",
+    "title": "iPad Pro",
+    "category": "Tech",
+    "price": 999,
+    "images": [
+      "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0",
+      "https://images.unsplash.com/photo-1611532736597-de2d4265fba3"
+    ],
+    "highlights": [
+      "ProMotion display",
+      "Works with Apple Pencil",
+      "Face ID"
+    ],
+    "details": "A thin, powerful tablet with a ProMotion display for smooth scrolling and drawing. Pair it with Apple Pencil for sketching and notes."
+  },
+  {
+    "id": 14,
+    "brand": "Apple",
+    "title": "iPhone 15",
+    "category": "Tech",
+    "price": 699,
+    "images": [
+      "https://images.unsplash.com/photo-1695048133142-1a20484d2569",
+      "detail:https://images.unsplash.com/photo-1695048133142-1a20484d2569"
+    ],
+    "highlights": [
+      "Dynamic Island",
+      "48 MP main camera",
+      "USB-C"
+    ],
+    "details": "Dynamic Island, a 48 MP main camera and USB-C charging, in a colour-infused glass back."
+  },
+  {
+    "id": 15,
+    "brand": "Apple",
+    "title": "MacBook Air",
+    "category": "Tech",
+    "price": 999,
+    "images": [
+      "https://images.unsplash.com/photo-1611186871348-b1ce696e52c9",
+      "detail:https://images.unsplash.com/photo-1611186871348-b1ce696e52c9"
+    ],
+    "highlights": [
+      "Silent, fanless design",
+      "All-day battery life",
+      "Retina display"
+    ],
+    "details": "A thin, fanless laptop that stays silent under load and lasts a full working day on battery. Light enough to carry everywhere."
+  },
+  {
+    "id": 16,
+    "brand": "DJI",
+    "title": "Phantom 4 Drone",
+    "category": "Tech",
+    "price": 1299,
+    "images": [
+      "https://images.unsplash.com/photo-1473968512647-3e447244af8f",
+      "https://images.unsplash.com/photo-1508614589041-895b88991e3e"
+    ],
+    "highlights": [
+      "3-axis stabilised gimbal",
+      "Obstacle sensing",
+      "Intelligent flight modes"
+    ],
+    "details": "A camera drone with a stabilised gimbal for smooth aerial video, obstacle sensing and intelligent flight modes that follow a subject or orbit a point."
+  },
+  {
+    "id": 17,
+    "brand": "Canon",
+    "title": "EOS DSLR Camera Kit",
+    "category": "Tech",
+    "price": 649,
+    "images": [
+      "https://images.unsplash.com/photo-1502920917128-1aa500764cbd",
+      "https://images.unsplash.com/photo-1520390138845-fd2d229dd553"
+    ],
+    "highlights": [
+      "Optical viewfinder",
+      "Interchangeable EF lenses",
+      "Kit zoom lens included"
+    ],
+    "details": "A dependable DSLR with an optical viewfinder, fast autofocus and interchangeable EF lenses. Supplied with a standard zoom kit lens."
+  },
+  {
+    "id": 18,
+    "brand": "Sony",
+    "title": "Alpha Mirrorless Camera",
+    "category": "Tech",
+    "price": 1599,
+    "images": [
+      "https://images.unsplash.com/photo-1516035069371-29a1b244cc32",
+      "https://images.unsplash.com/photo-1581591524425-c7e0978865fc"
+    ],
+    "highlights": [
+      "Full-frame sensor",
+      "Eye autofocus",
+      "In-body stabilisation"
+    ],
+    "details": "A full-frame mirrorless body with eye-tracking autofocus and in-body stabilisation, compatible with Sony's range of E-mount lenses."
+  },
+  {
+    "id": 19,
+    "brand": "Polaroid",
+    "title": "OneStep Instant Camera",
+    "category": "Tech",
+    "price": 119,
+    "images": [
+      "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f",
+      "detail:https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f"
+    ],
+    "highlights": [
+      "Prints in minutes",
+      "Built-in flash",
+      "Uses i-Type and 600 film"
+    ],
+    "details": "Point, shoot and watch the print develop in your hand. A classic analogue camera with a built-in flash, made for Polaroid i-Type and 600 film."
+  },
+  {
+    "id": 20,
+    "brand": "JBL",
+    "title": "Flip Portable Speaker",
+    "category": "Tech",
+    "price": 99,
+    "images": [
+      "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1",
+      "detail:https://images.unsplash.com/photo-1608043152269-423dbba4e7e1"
+    ],
+    "highlights": [
+      "Waterproof design",
+      "Rugged fabric finish",
+      "Pocket-sized"
+    ],
+    "details": "A rugged, waterproof Bluetooth speaker wrapped in tough fabric. Big sound for its size, with enough battery for a full day out."
+  },
+  {
+    "id": 21,
+    "brand": "Beats",
+    "title": "Solo3 Wireless Headphones",
+    "category": "Tech",
+    "price": 169,
+    "images": [
+      "https://images.unsplash.com/photo-1545127398-14699f92334b",
+      "detail:https://images.unsplash.com/photo-1545127398-14699f92334b"
+    ],
+    "highlights": [
+      "Up to 40 hours of battery",
+      "Foldable design",
+      "Quick pairing with Apple devices"
+    ],
+    "details": "On-ear headphones with a foldable design and long battery life. Quick pairing with Apple devices and on-ear controls for calls and music."
+  },
+  {
+    "id": 22,
+    "brand": "Chanel",
+    "title": "Bleu de Chanel Eau de Parfum",
+    "category": "Fragrance",
+    "price": 112,
+    "images": [
+      "https://images.unsplash.com/photo-1523293182086-7651a899d37f",
+      "detail:https://images.unsplash.com/photo-1523293182086-7651a899d37f"
+    ],
+    "highlights": [
+      "Woody aromatic",
+      "Citrus, cedar and sandalwood",
+      "100 ml eau de parfum"
+    ],
+    "details": "A woody aromatic fragrance for men: fresh citrus up top, settling into cedar and sandalwood. Deep blue glass bottle. 100 ml."
+  },
+  {
+    "id": 23,
+    "brand": "Chanel",
+    "title": "Coco Noir Eau de Parfum",
+    "category": "Fragrance",
+    "price": 118,
+    "images": [
+      "https://images.unsplash.com/photo-1594035910387-fea47794261f",
+      "https://images.unsplash.com/photo-1585386959984-a4155224a1ad"
+    ],
+    "highlights": [
+      "Oriental floral",
+      "Bergamot, rose and patchouli",
+      "100 ml eau de parfum"
+    ],
+    "details": "A deep, warm oriental fragrance with notes of bergamot, rose and patchouli, in a black lacquered bottle. 100 ml."
+  },
+  {
+    "id": 24,
+    "brand": "Chanel",
+    "title": "N°5 Eau de Parfum",
+    "category": "Fragrance",
+    "price": 126,
+    "images": [
+      "https://images.unsplash.com/photo-1541643600914-78b084683601",
+      "detail:https://images.unsplash.com/photo-1541643600914-78b084683601"
+    ],
+    "highlights": [
+      "Floral aldehyde",
+      "Created in 1921",
+      "100 ml eau de parfum"
+    ],
+    "details": "The floral aldehyde classic, first created in 1921, in its famous square bottle. 100 ml."
+  },
+  {
+    "id": 25,
+    "brand": "Versace",
+    "title": "Eros Eau de Toilette",
+    "category": "Fragrance",
+    "price": 78,
+    "images": [
+      "https://images.unsplash.com/photo-1587017539504-67cfbddac569",
+      "detail:https://images.unsplash.com/photo-1587017539504-67cfbddac569"
+    ],
+    "highlights": [
+      "Fresh oriental",
+      "Mint, green apple and vanilla",
+      "100 ml eau de toilette"
+    ],
+    "details": "Mint, green apple and vanilla in a turquoise bottle stamped with the Medusa head. Bold, sweet and long-lasting. 100 ml."
+  },
+  {
+    "id": 26,
+    "brand": "Giorgio Armani",
+    "title": "Acqua di Giò Eau de Toilette",
+    "category": "Fragrance",
+    "price": 85,
+    "images": [
+      "https://images.unsplash.com/photo-1619994403073-2cec844b8e63",
+      "detail:https://images.unsplash.com/photo-1619994403073-2cec844b8e63"
+    ],
+    "highlights": [
+      "Aquatic",
+      "Sea notes and citrus",
+      "100 ml eau de toilette"
+    ],
+    "details": "A fresh aquatic scent inspired by the Mediterranean: sea notes, citrus and a soft woody base. An everyday classic since 1996. 100 ml."
+  },
+  {
+    "id": 27,
+    "brand": "Dolce & Gabbana",
+    "title": "The One for Men",
+    "category": "Fragrance",
+    "price": 89,
+    "images": [
+      "https://images.unsplash.com/photo-1616949755610-8c9bbc08f138",
+      "detail@0.47,0.47:https://images.unsplash.com/photo-1616949755610-8c9bbc08f138"
+    ],
+    "highlights": [
+      "Spicy oriental",
+      "Grapefruit, cardamom and tobacco",
+      "100 ml"
+    ],
+    "details": "A warm, spicy oriental with grapefruit, cardamom and tobacco over amber. Square glass bottle with a textured cap. 100 ml."
+  },
+  {
+    "id": 28,
+    "brand": "Yves Saint Laurent",
+    "title": "Black Opium Eau de Parfum",
+    "category": "Fragrance",
+    "price": 98,
+    "images": [
+      "https://images.unsplash.com/photo-1600612253971-422e7f7faeb6",
+      "detail:https://images.unsplash.com/photo-1600612253971-422e7f7faeb6"
+    ],
+    "highlights": [
+      "Gourmand floral",
+      "Coffee, white flowers and vanilla",
+      "90 ml eau de parfum"
+    ],
+    "details": "Black coffee, white flowers and vanilla in a glittering black bottle. Rich and addictive. 90 ml."
+  },
+  {
+    "id": 29,
+    "brand": "Lancôme",
+    "title": "La Vie Est Belle Eau de Parfum",
+    "category": "Fragrance",
+    "price": 96,
+    "images": [
+      "https://images.unsplash.com/photo-1613521140785-e85e427f8002",
+      "detail:https://images.unsplash.com/photo-1613521140785-e85e427f8002"
+    ],
+    "highlights": [
+      "Gourmand floral",
+      "Iris, praline and vanilla",
+      "100 ml eau de parfum"
+    ],
+    "details": "A gourmand floral built around iris, praline and vanilla, in the crystal-cut bottle shaped like a smile. 100 ml."
+  },
+  {
+    "id": 30,
+    "brand": "SwiftCart Home",
+    "title": "Velvet Three-Seater Sofa",
+    "category": "Home",
+    "price": 849,
+    "images": [
+      "https://images.unsplash.com/photo-1555041469-a586c61ea9bc",
+      "detail:https://images.unsplash.com/photo-1555041469-a586c61ea9bc"
+    ],
+    "highlights": [
+      "Velvet upholstery",
+      "Seats three",
+      "Solid wooden legs"
+    ],
+    "details": "Deep-green velvet upholstery over a solid frame, with channel-stitched back cushions and tapered wooden legs. Room for three, or one person stretched out."
+  },
+  {
+    "id": 31,
+    "brand": "SwiftCart Home",
+    "title": "Mid-Century Armchair",
+    "category": "Home",
+    "price": 449,
+    "images": [
+      "https://images.unsplash.com/photo-1586023492125-27b2c045efd7",
+      "detail:https://images.unsplash.com/photo-1586023492125-27b2c045efd7"
+    ],
+    "highlights": [
+      "Mustard fabric",
+      "Winged back",
+      "Slim wooden legs"
+    ],
+    "details": "A winged armchair in mustard fabric on slim wooden legs. Deep enough to curl up in, compact enough for a reading corner."
+  },
+  {
+    "id": 32,
+    "brand": "SwiftCart Home",
+    "title": "Shell Lounge Chair",
+    "category": "Home",
+    "price": 799,
+    "images": [
+      "https://images.unsplash.com/photo-1519947486511-46149fa0a254",
+      "detail:https://images.unsplash.com/photo-1519947486511-46149fa0a254"
+    ],
+    "highlights": [
+      "Moulded shell",
+      "Low, wide seat",
+      "Three splayed legs"
+    ],
+    "details": "A low, wide lounge chair with a curved moulded shell and a smile-shaped seat, on three splayed legs."
+  },
+  {
+    "id": 33,
+    "brand": "SwiftCart Home",
+    "title": "Adjustable Floor Lamp",
+    "category": "Home",
+    "price": 89,
+    "images": [
+      "https://images.unsplash.com/photo-1507473885765-e6ed057f782c",
+      "detail:https://images.unsplash.com/photo-1507473885765-e6ed057f782c"
+    ],
+    "highlights": [
+      "Tilting shade",
+      "Matte steel",
+      "Floor-standing"
+    ],
+    "details": "A matte steel floor lamp with a shade that tilts to point light exactly where you need it. A reading light beside a sofa or a soft uplight in a corner."
+  },
+  {
+    "id": 34,
+    "brand": "Chemex",
+    "title": "Six-Cup Pour-Over Coffeemaker",
+    "category": "Kitchen",
+    "price": 49,
+    "images": [
+      "https://images.unsplash.com/photo-1442512595331-e89e73853f31",
+      "detail:https://images.unsplash.com/photo-1442512595331-e89e73853f31"
+    ],
+    "highlights": [
+      "Makes up to six cups",
+      "Non-porous glass",
+      "Wooden collar and leather tie"
+    ],
+    "details": "The hourglass-shaped glass brewer with a wooden collar, designed in 1941. Its thick bonded filters make a clean, bright cup."
+  },
+  {
+    "id": 35,
+    "brand": "SwiftCart Kitchen",
+    "title": "Enamelled Cast Iron Casserole",
+    "category": "Kitchen",
+    "price": 85,
+    "images": [
+      "https://images.unsplash.com/photo-1590794056226-79ef3a8147e1",
+      "detail:https://images.unsplash.com/photo-1590794056226-79ef3a8147e1"
+    ],
+    "highlights": [
+      "Enamelled cast iron",
+      "Hob and oven safe",
+      "Even heat retention"
+    ],
+    "details": "Holds heat evenly for slow braises, stews and bread. Goes from hob to oven to table."
+  },
+  {
+    "id": 36,
+    "brand": "SwiftCart Kitchen",
+    "title": "Burr Coffee Grinder",
+    "category": "Kitchen",
+    "price": 139,
+    "images": [
+      "https://images.unsplash.com/photo-1570222094114-d054a817e56b",
+      "detail:https://images.unsplash.com/photo-1570222094114-d054a817e56b"
+    ],
+    "highlights": [
+      "Conical steel burrs",
+      "Espresso to French press",
+      "Consistent grind"
+    ],
+    "details": "Conical steel burrs give an even grind from espresso-fine to French-press coarse. Dial in your setting once and get the same result every morning."
+  },
+  {
+    "id": 37,
+    "brand": "SwiftCart Kitchen",
+    "title": "Stoneware Cup Set",
+    "category": "Kitchen",
+    "price": 32,
+    "images": [
+      "https://images.unsplash.com/photo-1610701596007-11502861dcfa",
+      "detail:https://images.unsplash.com/photo-1610701596007-11502861dcfa"
+    ],
+    "highlights": [
+      "Set of four",
+      "Speckled stoneware",
+      "Handleless design"
+    ],
+    "details": "Four handleless cups in speckled stoneware, each slightly different. Sized for espresso, tea or a small glass of wine."
+  },
+  {
+    "id": 38,
+    "brand": "SwiftCart Kitchen",
+    "title": "Chef's Knife Set",
+    "category": "Kitchen",
+    "price": 129,
+    "images": [
+      "https://images.unsplash.com/photo-1593618998160-e34014e67546",
+      "detail:https://images.unsplash.com/photo-1593618998160-e34014e67546"
+    ],
+    "highlights": [
+      "Four forged knives",
+      "Carving fork and honing steel",
+      "Canvas knife roll"
+    ],
+    "details": "Four forged steel knives, a carving fork and a honing steel, with wooden handles and a canvas roll to keep them together."
+  },
+  {
+    "id": 39,
+    "brand": "Nike",
+    "title": "Air Jordan 1 Mid",
+    "category": "Sports",
+    "price": 115,
+    "images": [
+      "https://images.unsplash.com/photo-1597045566677-8cf032ed6634",
+      "detail:https://images.unsplash.com/photo-1597045566677-8cf032ed6634"
+    ],
+    "highlights": [
+      "Leather upper",
+      "Air cushioning",
+      "Wings logo on the collar"
+    ],
+    "details": "The basketball shoe that started it all in 1985, in a mid-top cut. Leather upper, Air cushioning and the Wings logo on the collar."
+  },
+  {
+    "id": 40,
+    "brand": "Nike",
+    "title": "Air Force 1 '07",
+    "category": "Sports",
+    "price": 109.99,
+    "images": [
+      "https://images.unsplash.com/photo-1600269452121-4f2416e55c28",
+      "detail:https://images.unsplash.com/photo-1600269452121-4f2416e55c28"
+    ],
+    "highlights": [
+      "Leather upper",
+      "Air cushioning",
+      "A classic since 1982"
+    ],
+    "details": "The all-white leather classic, first released in 1982. Crisp overlays, a padded low-cut collar and Air cushioning underfoot."
+  },
+  {
+    "id": 41,
+    "brand": "Nike",
+    "title": "SB Dunk High",
+    "category": "Sports",
+    "price": 115,
+    "images": [
+      "https://images.unsplash.com/photo-1584735175315-9d5df23860e6",
+      "detail:https://images.unsplash.com/photo-1584735175315-9d5df23860e6"
+    ],
+    "highlights": [
+      "Padded tongue",
+      "Zoom Air heel unit",
+      "Gum rubber outsole"
+    ],
+    "details": "A high-top skate shoe with a padded tongue, a grippy gum-rubber outsole and Zoom Air cushioning in the heel."
+  },
+  {
+    "id": 42,
+    "brand": "New Balance",
+    "title": "247 Sneaker",
+    "category": "Sports",
+    "price": 84.99,
+    "images": [
+      "https://images.unsplash.com/photo-1539185441755-769473a23570",
+      "detail@0.56,0.5:https://images.unsplash.com/photo-1539185441755-769473a23570"
+    ],
+    "highlights": [
+      "Lightweight",
+      "Sock-like fit",
+      "Breathable upper"
+    ],
+    "details": "A lightweight lifestyle trainer with a sock-like fit, a breathable upper and the big N on the side."
+  },
+  {
+    "id": 43,
+    "brand": "Nike",
+    "title": "Air Max",
+    "category": "Sports",
+    "price": 129.99,
+    "images": [
+      "https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb",
+      "detail:https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb"
+    ],
+    "highlights": [
+      "Visible Air unit",
+      "Mesh upper",
+      "Cushioned midsole"
+    ],
+    "details": "The visible Air unit in the heel, a breathable mesh upper and a sculpted midsole. Comfortable for easy runs and long days on your feet."
+  },
+  {
+    "id": 44,
+    "brand": "Nike",
+    "title": "Flyknit Running Shoe",
+    "category": "Sports",
+    "price": 120,
+    "images": [
+      "https://images.unsplash.com/photo-1542291026-7eec264c27ff",
+      "detail:https://images.unsplash.com/photo-1542291026-7eec264c27ff"
+    ],
+    "highlights": [
+      "Flyknit upper",
+      "Flexible sole",
+      "Lightweight"
+    ],
+    "details": "A lightweight Flyknit upper that moves with your foot, on a flexible foam sole. Built for daily runs."
+  },
+  {
+    "id": 45,
+    "brand": "Spalding",
+    "title": "NBA Outdoor Basketball",
+    "category": "Sports",
+    "price": 29.99,
+    "images": [
+      "https://images.unsplash.com/photo-1519861531473-9200262188bf",
+      "detail@0.4,0.68:https://images.unsplash.com/photo-1519861531473-9200262188bf"
+    ],
+    "highlights": [
+      "Size 7",
+      "Grippy rubber cover",
+      "Made for outdoor courts"
+    ],
+    "details": "A size 7 rubber basketball with deep channels for grip, made to hold up on tarmac and concrete courts."
+  },
+  {
+    "id": 46,
+    "brand": "Adidas",
+    "title": "Champions League Match Ball",
+    "category": "Sports",
+    "price": 34.99,
+    "images": [
+      "https://images.unsplash.com/photo-1614632537423-1e6c2e7e0aab",
+      "detail:https://images.unsplash.com/photo-1614632537423-1e6c2e7e0aab"
+    ],
+    "highlights": [
+      "Size 5",
+      "Thermally bonded panels",
+      "Champions League star design"
+    ],
+    "details": "The star-panel design of the UEFA Champions League ball. A size 5 thermally bonded ball for grass and artificial pitches."
   }
 ]

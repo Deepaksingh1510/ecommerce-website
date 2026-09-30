@@ -10,6 +10,7 @@
 
 # next.js
 /.next/
+/.next-verify/
 /out/
 
 # production
@@ -33,3 +34,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+.claude/skills
+.agents/skills
+skills-lock.json

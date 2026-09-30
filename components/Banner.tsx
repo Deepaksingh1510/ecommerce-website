@@ -1,35 +1,42 @@
-import React from "react";
 import Image from "next/image";
-type Props = {};
+import Link from "next/link";
+import { PiArrowRight } from "react-icons/pi";
+import { siteImages } from "@/lib/products";
 
-function Banner({}: Props) {
+function Banner() {
   return (
-    <div className="justify-start p-3 mt-12 max-w-7xl mx-auto ">
-      <div className="grid grid-cols-2 gap-0 shadow-lg">
-        <div className=" md:col-span-1 col-span-2 flex flex-col md:h-[400px] h-[300px] w-[full] bg-slate-300 justify-center items-center ">
-          <h1 className=" font-bold text-black text-center text-4xl  ">
-            Embrace Your Space
-          </h1>
-          <p className="text-center text-xl md:w-[380px] mt-4 font-semibold text-black w-[350px] ">
-            Discover the Art of Harmonious Living
+    <section className="container-page py-8 md:py-12">
+      <div className="reveal grid overflow-hidden rounded-3xl bg-tile md:grid-cols-12">
+        <div className="flex flex-col justify-center px-6 py-12 md:col-span-5 md:px-12 md:py-20">
+          <h2 className="text-3xl font-semibold tracking-[-0.03em] md:text-5xl">
+            Embrace your space
+          </h2>
+          <p className="mt-4 max-w-[36ch] text-lg leading-relaxed text-ink-soft">
+            Discover the art of harmonious living.
           </p>
-          <div className=" flex h-10 w-32 bg-black text-white justify-center items-center md:mt-3 mt-6 border-2 border-black hover:text-black hover:bg-white font-semibold duration-200">
-            SHOP NOW
+          <div className="mt-8">
+            <Link href="/category/Home" className="btn-secondary group">
+              Shop home
+              <PiArrowRight
+                size={16}
+                className="transition-transform duration-200 ease-out group-hover:translate-x-0.5"
+              />
+            </Link>
           </div>
         </div>
-        <div className="col-span-1 hidden md:flex ">
+        <div className="relative aspect-[4/3] md:col-span-7 md:aspect-auto md:min-h-[440px]">
           <Image
-            className=" h-[400px] w-[628px] object-cover"
-            src={
-              "https://d1hy6t2xeg0mdl.cloudfront.net/image/538225/8b7f2245b4/standard"
-            }
-            alt="bannerPhoto"
-            width={630}
-            height={400}
-          ></Image>
+            src={siteImages.banner.src}
+            alt="Bright dining room with a wooden table"
+            fill
+            sizes="(min-width: 768px) 58vw, 100vw"
+            placeholder="blur"
+            blurDataURL={siteImages.banner.blurDataURL}
+            className="object-cover"
+          />
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 

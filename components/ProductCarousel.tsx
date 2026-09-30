@@ -1,41 +1,53 @@
-import React from "react";
-import productsData from "./../data/ProductData.json";
-type Props = {};
+import ProductCard from "@/components/ProductCard";
+import { getProducts, toSummary } from "@/lib/products";
 
-function ProductCarousel({}: Props) {
-  // Filter the data to get items with IDs between 6 and 11
-  const filteredProducts = productsData.filter(
-    (product) => product.id >= 6 && product.id <= 11
-  );
+const trendingIds = [6, 10, 25, 40, 7, 24, 18, 32, 2, 41];
+
+// An endless, self-scrolling strip. The list is rendered twice and the track
+// slides left by exactly one copy's width, so the loop has no visible seam.
+// Hovering or tabbing into it pauses on the product under the cursor. The
+// second copy is decorative only: hidden from screen readers and keyboard.
+function ProductCarousel() {
+  const trending = getProducts(trendingIds).map(toSummary);
 
   return (
-    <div className="justify-start p-3 max-w-7xl mx-auto overflow-hidden mt-6">
-      <h1
-        className={`font-bold md:text-4xl text-2xl justify-start text-slate-700 my-5 underline`}
-      >
-        Trending Now
-      </h1>
-      <div className="w-full flex overflow-hidden overflow-x-scroll p-2 justify-start space-x-5 scrollbar-thin scrollbar-thumb-red-500 scrollbar-track-rounded-xl scrollbar-thumb-rounded-xl ">
-        {filteredProducts.map((product) => (
-          <div
-            key={product.id}
-            className=" shadow-md flex-shrink-0 md:h-[300px] md:w-[250px] h-[200px] w-[180px] bg-white border-2 border-gray-200 hover:border-gray-500 duration-200 hover:scale-105 mb-1"
-          >
-            <div className="flex justify-center items-center md:mt-5 mt-2 w-full">
-              <img
-                className="md:h-[200px] md:w-[220px] h-[130px] w-[120px] object-contain"
-                src={product.mainImageUrl}
-                alt={`Product-${product.id}`}
-              />
-            </div>
-            <div className="flex flex-col justify-start mt-2 ml-2">
-              <p className="md:text-lg text-sm font-normal ">{product.title}</p>
-              <p className="md:text-xl text-sm font-bold">£{product.price}</p>
-            </div>
-          </div>
-        ))}
+    <section id="trending" className="py-16 md:py-24">
+      <div className="container-page">
+        <h2 className="text-3xl font-semibold tracking-[-0.03em] md:text-5xl">
+          Trending now
+        </h2>
       </div>
-    </div>
+
+      <div
+        className="marquee mt-8 md:mt-12"
+        style={{ "--marquee-duration": `${trending.length * 6}s` } as React.CSSProperties}
+      >
+        <div className="marquee-track flex w-max py-3">
+          {[0, 1].map((copy) => (
+            <ul
+              key={copy}
+              className={`flex shrink-0 ${copy === 1 ? "marquee-copy" : ""}`}
+              aria-hidden={copy === 1 || undefined}
+              {...(copy === 1 ? { inert: "" } : {})}
+            >
+              {trending.map((product) => (
+                // Spacing is padding, not gap, so both copies are exactly the
+                // same width and -50% lands precisely on the seam.
+                <li
+                  key={product.id}
+                  className="w-[64vw] shrink-0 pr-4 sm:w-[40vw] md:w-[19rem] md:pr-6"
+                >
+                  <ProductCard
+                    product={product}
+                    sizes="(min-width: 768px) 288px, (min-width: 640px) 40vw, 64vw"
+                  />
+                </li>
+              ))}
+            </ul>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }
 

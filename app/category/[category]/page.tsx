@@ -1,22 +1,25 @@
-"use client";
-import { store } from "@/app/store";
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import CategoryGrid from "@/components/CategoryGrid";
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
+import { categories, isCategory } from "@/lib/products";
 
-import { Provider } from "react-redux";
 type PageProps = {
   params: {
     category: string;
   };
 };
-export default function Home({ params: { category } }: PageProps) {
-  return (
-    <Provider store={store}>
-      <body className=" h-full bg-gray-100">
-        <Header />
-        <CategoryGrid category={category} />
-      </body>
-    </Provider>
-  );
+
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+  return categories.map((category) => ({ category }));
+}
+
+export function generateMetadata({ params: { category } }: PageProps): Metadata {
+  return { title: category === "All" ? "All products" : category };
+}
+
+export default function CategoryPage({ params: { category } }: PageProps) {
+  if (!isCategory(category)) notFound();
+  return <CategoryGrid category={category} />;
 }

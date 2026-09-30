@@ -1,121 +1,73 @@
-"use client";
-import React, { useState } from "react";
-import productsData from "./../data/ProductData.json";
-import { useRouter } from "next/navigation";
-type Props = { category: string };
+import Link from "next/link";
+import ProductListing from "@/components/ProductListing";
+import {
+  categories,
+  getProductsByCategory,
+  toSummary,
+  type Category,
+} from "@/lib/products";
+
+type Props = { category: Category };
 
 function CategoryGrid({ category }: Props) {
-  const router = useRouter(); // Use the useNavigation hook
-  const [selectedProduct, setSelectedProduct] = useState(null);
-  const navigateToCategoryHome = () => {
-    router.push("/category/Home"); // Function to navigate
-  };
-  const navigateToCategorySports = () => {
-    router.push("/category/Sports"); // Function to navigate
-  };
-  const navigateToCategoryTech = () => {
-    router.push("/category/Tech"); // Function to navigate
-  };
-  const navigateToCategoryKitchen = () => {
-    router.push("/category/Kitchen"); // Function to navigate
-  };
-  const navigateToCategoryFragrance = () => {
-    router.push("/category/Fragrance"); // Function to navigate
-  };
-  const navigateToCategoryAll = () => {
-    router.push("/category/All"); // Function to navigate
-  };
-  const handleProductClick = (relatedProduct: any) => {
-    setSelectedProduct(relatedProduct);
-    router.push(`/products/${relatedProduct.id}`);
-  };
-
-  let displayedProducts = productsData;
-
-  if (category !== "All") {
-    displayedProducts = productsData.filter((p) => p.category === category);
-  }
+  const displayedProducts = getProductsByCategory(category);
 
   return (
-    <div className="justify-start p-3 max-w-7xl mx-auto overflow-hidden mt-6">
-      <div className="flex justify-center">
-        <h2
-          className={`font-bold md:text-4xl text-2xl text-slate-700 my-5 underline`}
-        >
-          {category === "All" ? "All Products" : `${category} Products`}
-        </h2>
-      </div>
-      <div className=" flex max-w-xl mx-auto mb-6 justify-center items-center">
-        <div className="md:flex md:flex-row grid grid-cols-3 justify-evenly items-center md:space-x-4">
-          <div className="flex h-8 w-fit border-2 border-gray-300 hover:border-gray-500 md:justify-center md:items-center">
-            <p
-              className="cursor-pointer hover:underline decoration-1 text-md font-normal px-3"
-              onClick={navigateToCategoryAll}
-            >
-              All
-            </p>
-          </div>
-          <div className="flex h-8 w-fit border-2 border-gray-300 hover:border-gray-500 justify-center items-center">
-            <p
-              className="cursor-pointer hover:underline decoration-1 text-md font-normal px-1"
-              onClick={navigateToCategoryHome}
-            >
-              Home
-            </p>
-          </div>
-          <div className="flex h-8 w-fit border-2 border-gray-300 hover:border-gray-500 justify-center items-center">
-            <p
-              className="cursor-pointer hover:underline decoration-1 text-lg font-normal px-1"
-              onClick={navigateToCategorySports}
-            >
-              Sports
-            </p>
-          </div>
-          <div className="flex h-8 w-fit border-2 border-gray-300 hover:border-gray-500 justify-center items-center">
-            <p
-              className="cursor-pointer hover:underline decoration-1 text-lg font-normal px-1"
-              onClick={navigateToCategoryTech}
-            >
-              Tech
-            </p>
-          </div>
-          <div className="flex h-8 w-fit border-2 border-gray-300 hover:border-gray-500 justify-center items-center">
-            <p
-              className="cursor-pointer hover:underline decoration-1 text-lg font-normal px-1"
-              onClick={navigateToCategoryKitchen}
-            >
-              Kitchen
-            </p>
-          </div>
-          <div className="flex h-8 w-fit border-2 border-gray-300 hover:border-gray-500 justify-center items-center">
-            <p
-              className="cursor-pointer hover:underline decoration-1 text-lg font-normal px-1"
-              onClick={navigateToCategoryFragrance}
-            >
-              Fragrance
-            </p>
-          </div>
+    <section className="container-page pb-8 pt-10 md:pt-16">
+      <h1 className="text-4xl font-semibold tracking-[-0.035em] md:text-6xl">
+        {category === "All" ? "All products" : category}
+      </h1>
+
+      <nav
+        aria-label="Categories"
+        className="rail -mx-4 mt-6 overflow-x-auto px-4 sm:mx-0 sm:px-0 md:mt-8"
+      >
+        <ul className="flex gap-2 pb-6">
+          {categories.map((item) => {
+            const active = item === category;
+            const count = getProductsByCategory(item).length;
+            return (
+              <li key={item} className="shrink-0">
+                <Link
+                  href={`/category/${item}`}
+                  aria-current={active ? "page" : undefined}
+                  className={`inline-flex h-9 items-center gap-2 rounded-full px-4 text-sm transition-colors duration-200 ${
+                    active
+                      ? "bg-ink text-canvas"
+                      : "bg-line/[0.05] text-ink-soft hover:bg-line/10 hover:text-ink"
+                  }`}
+                >
+                  {item}
+                  <span
+                    className={`price text-xs ${
+                      active ? "text-canvas/60" : "text-ink-soft/70"
+                    }`}
+                  >
+                    {count}
+                  </span>
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+      </nav>
+
+      {displayedProducts.length > 0 ? (
+        <ProductListing products={displayedProducts.map(toSummary)} />
+      ) : (
+        <div className="mt-4 rounded-3xl bg-tile px-6 py-20 text-center">
+          <p className="font-display text-xl font-semibold tracking-tight">
+            Nothing in {category} yet
+          </p>
+          <p className="mt-2 text-ink-soft">
+            New products are added regularly. Browse the full range meanwhile.
+          </p>
+          <Link href="/category/All" className="btn-primary mt-6">
+            All products
+          </Link>
         </div>
-      </div>
-      <div>
-        <div className="w-full grid md:grid-cols-4 sm:grid-cols-3 grid-cols-2 p-2 justify-start scrollbar-thin scrollbar-thumb-violet-300 scrollbar-track-rounded-xl scrollbar-thumb-rounded-xl gap-5">
-          {displayedProducts.map((relatedProduct) => (
-            <div
-              key={relatedProduct.id}
-              onClick={() => handleProductClick(relatedProduct)}
-              className="flex flex-col shadow-lg md:h-[350px] h-[200px] w-full border-2 bg-white hover:border-gray-800 hover:scale-105 duration-200 cursor-pointer border-gray-400 justify-center items-center"
-            >
-              <h3 className="text-center mb-4">{relatedProduct.title}</h3>
-              <img
-                className="md:h-[250px] md:w-[220px] h-[130px] w-[120px] object-contain"
-                src={relatedProduct.mainImageUrl}
-                alt={relatedProduct.title}
-              />
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
+      )}
+    </section>
   );
 }
 

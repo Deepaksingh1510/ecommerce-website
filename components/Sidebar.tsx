@@ -1,141 +1,217 @@
-import React, { useState } from "react";
+"use client";
+import { useEffect, useRef } from "react";
 import Image from "next/image";
-import { IoMdCart } from "react-icons/io";
-import { useSelector } from "react-redux";
-import { AiOutlineMinus } from "react-icons/ai";
-import { FaShoppingBasket } from "react-icons/fa";
-import { BsPlus } from "react-icons/bs";
-import { ImPriceTags } from "react-icons/im";
-import { IoCloseSharp } from "react-icons/io5";
-import { RiDeleteBin6Line } from "react-icons/ri";
-import { useDispatch } from "react-redux";
+import Link from "next/link";
+import { useDispatch, useSelector } from "react-redux";
+import { toast } from "sonner";
 import {
-  removefromCart,
-  incrementQuantity,
+  PiMinus,
+  PiPlus,
+  PiShoppingBag,
+  PiTrash,
+  PiX,
+} from "react-icons/pi";
+import {
+  closeCart,
   decrementQuantity,
+  incrementQuantity,
+  removefromCart,
+  selectIsCartOpen,
+  selectItemCount,
   selectItems,
+  selectSubtotal,
 } from "@/slices/cartSlice";
-import { toast } from "react-toastify";
+import { formatPrice } from "@/lib/format";
 
-type Props = { onClose: () => void; isOpen: boolean };
-
-function Sidebar({ onClose, isOpen }: Props) {
+function CartDrawer() {
   const dispatch = useDispatch();
+  const isOpen = useSelector(selectIsCartOpen);
   const items = useSelector(selectItems);
-  const subtotal = items.reduce((total, item) => total + item.totalPrice, 0);
+  const itemCount = useSelector(selectItemCount);
+  const subtotal = useSelector(selectSubtotal);
+  const closeRef = useRef<HTMLButtonElement>(null);
+
+  const close = () => dispatch(closeCart());
+
+  useEffect(() => {
+    if (!isOpen) return;
+    const previouslyFocused = document.activeElement as HTMLElement | null;
+    closeRef.current?.focus();
+    document.documentElement.style.overflow = "hidden";
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") dispatch(closeCart());
+    };
+    window.addEventListener("keydown", onKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", onKeyDown);
+      document.documentElement.style.overflow = "";
+      previouslyFocused?.focus();
+    };
+  }, [isOpen, dispatch]);
+
   return (
     <>
-      {/* Dark overlay */}
-      {isOpen && (
-        <div
-          className="fixed top-0 left-0 right-0 bottom-0 w-full h-screen bg-black opacity-50 z-[200]"
-          onClick={onClose}
-        />
-      )}
-      {/* Sidebar */}
       <div
-        className={`fixed top-0 right-0 h-full md:w-[550px] w-full shadow-lg bg-white transition-transform z-[400] ${
-          isOpen ? "translate-x-0" : "translate-x-full z-[400]"
+        aria-hidden
+        onClick={close}
+        className={`fixed inset-0 z-overlay bg-black/40 transition-opacity ${
+          isOpen
+            ? "opacity-100 duration-300"
+            : "pointer-events-none opacity-0 duration-200"
+        }`}
+      />
+
+      <aside
+        role="dialog"
+        aria-modal="true"
+        aria-label="Shopping cart"
+        className={`fixed inset-y-0 right-0 z-drawer flex w-full flex-col bg-surface shadow-[0_0_60px_-15px_rgb(0_0_0/0.35)] ease-drawer sm:max-w-md ${
+          // Visibility flips instantly on open (so focus can move in) and only
+          // waits for the slide-out on close. Closing is faster than opening.
+          isOpen
+            ? "visible translate-x-0 transition-transform duration-500"
+            : "invisible translate-x-full transition-[transform,visibility] duration-300"
         }`}
       >
-        <div className="bg-white z-20">
-          <div className="flex justify-between items-center p-3">
-            <div className="flex flex-row items-center space-x-2">
-              <FaShoppingBasket className="ml-2" size={26} />
-              <h2 className="text-2xl font-semibold mt-1">
-                Shopping Cart ({items.length})
-              </h2>
-            </div>
-            <IoCloseSharp onClick={onClose} size={30} color="#6b7280" />
+        <div className="flex h-16 items-center justify-between border-b border-line/[0.06] px-5">
+          <h2 className="text-lg font-semibold tracking-tight">
+            Your cart{" "}
+            <span className="price font-sans text-base font-normal text-ink-soft">
+              ({itemCount})
+            </span>
+          </h2>
+          <button
+            ref={closeRef}
+            type="button"
+            onClick={close}
+            className="icon-btn -mr-2"
+            aria-label="Close cart"
+          >
+            <PiX size={20} />
+          </button>
+        </div>
+
+        {items.length === 0 ? (
+          <div className="flex flex-1 flex-col items-center justify-center px-8 text-center">
+            <span className="grid h-16 w-16 place-items-center rounded-2xl bg-tile text-ink-soft">
+              <PiShoppingBag size={28} />
+            </span>
+            <p className="mt-5 font-display text-xl font-semibold tracking-tight">
+              Your cart is empty
+            </p>
+            <p className="mt-2 max-w-[28ch] text-ink-soft">
+              Products you add will show up here.
+            </p>
+            <Link href="/category/All" onClick={close} className="btn-primary mt-6">
+              Browse products
+            </Link>
           </div>
-          <div className="px-4 overflow-y-scroll h-[75vh] scrollbar-thin scrollbar-track-rounded-xl scrollbar-thumb-rounded-xl scrollbar-thumb-red-500 scrollbar-track-gray-300">
-            {/* Render your cart items here */}
-            {items.map((item) => (
-              <div key={item.id} className="flex flex-col py-2  ">
-                <div className=" flex flex-row h-[150px] w-full border border-black hover:border-2 justify-start items-center">
-                  <div className="flex h-full w-[45%] justify-center items-center">
-                    <img
-                      className="ml-6 mr-6 h-[90%]"
+        ) : (
+          <>
+            <ul className="flex-1 divide-y divide-line/[0.06] overflow-y-auto overscroll-contain px-5">
+              {items.map((item) => (
+                <li key={item.id} className="flex gap-4 py-5">
+                  <Link
+                    href={`/products/${item.id}`}
+                    onClick={close}
+                    className="relative h-24 w-24 shrink-0 overflow-hidden rounded-2xl bg-tile"
+                  >
+                    <Image
                       src={item.mainImageUrl}
-                      alt="products"
+                      alt={item.title}
+                      fill
+                      sizes="96px"
+                      className="object-cover"
                     />
-                  </div>
-                  <div className="flex flex-col h-full w-full space-y-4 bg-slate-200 ">
-                    <div className="flex w-full h-[90%] justify-between mt-5  ">
-                      <p className=" ml-5 text-2xl  ">{item?.title}</p>
-                      <p className=" mr-5 text-2xl font-bold">
-                        £{item?.totalPrice}
+                  </Link>
+
+                  <div className="flex min-w-0 flex-1 flex-col">
+                    <div className="flex items-start justify-between gap-3">
+                      <Link
+                        href={`/products/${item.id}`}
+                        onClick={close}
+                        className="truncate font-medium hover:underline hover:underline-offset-4"
+                      >
+                        {item.title}
+                      </Link>
+                      <p className="price shrink-0 font-medium">
+                        {formatPrice(item.totalPrice)}
                       </p>
                     </div>
-                    <div className="flex w-full justify-between pb-5  ">
-                      <div className="grid grid-cols-3 gap-[2px] h-8 w-[105px] ml-5">
-                        <div
+                    <p className="price mt-0.5 text-sm text-ink-soft">
+                      {formatPrice(item.price)} each
+                    </p>
+
+                    <div className="mt-auto flex items-center justify-between pt-3">
+                      <div className="flex items-center rounded-full ring-1 ring-inset ring-line/15">
+                        <button
+                          type="button"
                           onClick={() =>
                             dispatch(decrementQuantity({ itemId: item.id }))
                           }
-                          className="flex justify-center items-center col-span-1 bg-black border border-black cursor-pointer"
+                          disabled={item.quantity <= 1}
+                          className="icon-btn h-8 w-8 disabled:opacity-30"
+                          aria-label={`Decrease quantity of ${item.title}`}
                         >
-                          <AiOutlineMinus size={20} color="white" />
-                        </div>
-                        <div className=" flex justify-center items-center col-span-1 bg-white border border-black ">
-                          <p className="text-2xl font-normal">
-                            {item?.quantity}
-                          </p>
-                        </div>
-                        <div
+                          <PiMinus size={14} />
+                        </button>
+                        <span className="price w-6 text-center text-sm">
+                          {item.quantity}
+                        </span>
+                        <button
+                          type="button"
                           onClick={() =>
                             dispatch(incrementQuantity({ itemId: item.id }))
                           }
-                          className="flex justify-center items-center col-span-1 bg-black border border-black cursor-pointer"
+                          className="icon-btn h-8 w-8"
+                          aria-label={`Increase quantity of ${item.title}`}
                         >
-                          <BsPlus size={24} color="white" />
-                        </div>
+                          <PiPlus size={14} />
+                        </button>
                       </div>
-                      <div
+
+                      <button
+                        type="button"
                         onClick={() => {
                           dispatch(removefromCart(item.id));
-                          toast.success("Item removed from Cart", {
-                            position: "top-center",
-                            autoClose: 2000,
-                            hideProgressBar: false,
-                            closeOnClick: true,
-                            pauseOnHover: true,
-                            draggable: true,
-                            progress: undefined,
-                            theme: "light",
-                          });
+                          toast(`Removed ${item.title} from your cart`);
                         }}
+                        className="icon-btn h-8 w-8 text-ink-soft hover:text-ink"
+                        aria-label={`Remove ${item.title} from cart`}
                       >
-                        <RiDeleteBin6Line
-                          className="mr-10 cursor-pointer"
-                          size={28}
-                        />
-                      </div>
+                        <PiTrash size={18} />
+                      </button>
                     </div>
                   </div>
-                </div>
+                </li>
+              ))}
+            </ul>
+
+            <div className="border-t border-line/[0.06] px-5 pb-6 pt-5">
+              <div className="flex items-baseline justify-between">
+                <span className="text-ink-soft">Subtotal</span>
+                <span className="price font-display text-2xl font-semibold tracking-tight">
+                  {formatPrice(subtotal)}
+                </span>
               </div>
-            ))}
-          </div>
-          <div className=" flex justify-center items-center ">
-            <span className="border-b-[3px] border-gray-500 px-2 w-[60%] mb-5"></span>
-          </div>
-          <div className="flex flex-row md:px-10 px-8 items-center justify-between">
-            <div className="flex flex-col space-y-1">
-              <h1 className=" font-bold text-2xl">Subtotal</h1>
-              <div className="flex flex-row justify-start items-center space-x-2 text-gray-800">
-                <ImPriceTags size={24} />
-                <p className="text-2xl font-semibold">£{subtotal}</p>
-              </div>
+              <p className="mt-1 text-sm text-ink-soft">
+                Shipping and taxes are calculated at checkout.
+              </p>
+              <button
+                type="button"
+                onClick={() => toast("Checkout isn't available yet.")}
+                className="btn-primary mt-5 w-full"
+              >
+                Checkout
+              </button>
             </div>
-            <div className="flex justify-center items-center h-12 w-[120px] border-2 hover:bg-white bg-red-600 text-white hover:text-red-600 hover:border-red-600 border-white ">
-              <p className="text-lg font-medium">Checkout</p>
-            </div>
-          </div>
-        </div>
-      </div>
+          </>
+        )}
+      </aside>
     </>
   );
 }
 
-export default Sidebar;
+export default CartDrawer;

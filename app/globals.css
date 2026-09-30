@@ -2,8 +2,166 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer components {
-  .headerbtn {
-    @apply px-4 hover:underline underline-offset-2 decoration-1 cursor-pointer;
+/*
+  Design tokens. One accent (burnt orange), one cool-neutral gray family.
+  Radius rule: buttons and pills are fully rounded, tiles are rounded-2xl,
+  large containers are rounded-3xl.
+*/
+@layer base {
+  :root {
+    --canvas: 246 246 245;
+    --surface: 252 252 251;
+    --tile: 236 236 234;
+    --ink: 23 23 26;
+    --ink-soft: 92 92 100;
+    --line: 23 23 26;
+    --accent: 194 65 12;
+    --on-accent: 252 252 251;
+    color-scheme: light;
   }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --canvas: 13 13 14;
+      --surface: 22 22 24;
+      --tile: 31 31 34;
+      --ink: 237 237 234;
+      --ink-soft: 163 163 172;
+      --line: 237 237 234;
+      --accent: 251 146 60;
+      --on-accent: 23 23 26;
+      color-scheme: dark;
+    }
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    @apply bg-canvas text-ink font-sans antialiased;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-display;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-accent ring-offset-2 ring-offset-canvas;
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .btn {
+    @apply inline-flex h-12 items-center justify-center gap-2 whitespace-nowrap rounded-full px-6 text-[15px] font-medium;
+    transition: transform 160ms cubic-bezier(0.23, 1, 0.32, 1),
+      background-color 200ms ease, color 200ms ease, box-shadow 200ms ease;
+  }
+  .btn:active {
+    transform: scale(0.97);
+  }
+  .btn-primary {
+    @apply btn bg-accent text-on-accent hover:bg-accent/90;
+  }
+  .btn-secondary {
+    @apply btn bg-transparent text-ink ring-1 ring-inset ring-line/20 hover:bg-line/5;
+  }
+
+  .icon-btn {
+    @apply inline-flex h-10 w-10 items-center justify-center rounded-full text-ink hover:bg-line/5;
+    transition: transform 160ms cubic-bezier(0.23, 1, 0.32, 1),
+      background-color 200ms ease;
+  }
+  .icon-btn:active {
+    transform: scale(0.94);
+  }
+
+  .price {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Motion. Everything here is transform/opacity only and disabled for users
+   who prefer reduced motion. */
+@media (prefers-reduced-motion: no-preference) {
+  .enter {
+    animation: enter 600ms cubic-bezier(0.23, 1, 0.32, 1) both;
+    animation-delay: calc(var(--i, 0) * 70ms);
+  }
+
+  /* Scroll reveal with zero JavaScript. Browsers without scroll-driven
+     animation support simply show the content. */
+  @supports (animation-timeline: view()) {
+    .reveal {
+      animation: enter linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 40%;
+    }
+  }
+}
+
+@keyframes enter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Trending marquee: constant linear motion, paused while hovered or focused.
+   Edges fade out rather than cutting a card off at the screen edge. */
+.marquee {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 7%, #000 93%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 7%, #000 93%, transparent);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .marquee-track {
+    animation: marquee var(--marquee-duration, 60s) linear infinite;
+  }
+  .marquee:hover .marquee-track,
+  .marquee:focus-within .marquee-track {
+    animation-play-state: paused;
+  }
+}
+/* Reduced motion: no auto-scroll; a plain swipeable row of one copy instead. */
+@media (prefers-reduced-motion: reduce) {
+  .marquee {
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding-inline: 1rem;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+  .marquee-copy {
+    display: none;
+  }
+}
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Horizontal product rail */
+.rail {
+  scrollbar-width: none;
+}
+.rail::-webkit-scrollbar {
+  display: none;
 }

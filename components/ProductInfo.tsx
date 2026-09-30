@@ -1,168 +1,172 @@
-"use client";
-import React, { useEffect, useState } from "react";
-import productsData from "./../data/ProductData.json";
-import { AiOutlineMinus } from "react-icons/ai";
-import { BsPlus } from "react-icons/bs";
-import { useDispatch } from "react-redux";
-import { addtoCart, selectItems } from "@/slices/cartSlice";
-import { store } from "@/app/store";
-import { toast } from "react-toastify";
-type Props = { id: string };
+import Link from "next/link";
+import {
+  PiArrowCounterClockwise,
+  PiCaretDown,
+  PiCaretRight,
+  PiLockSimple,
+  PiSealCheck,
+  PiTruck,
+} from "react-icons/pi";
+import AddToCart from "@/components/AddToCart";
+import ProductGallery from "@/components/ProductGallery";
+import { formatPrice } from "@/lib/format";
+import type { Product } from "@/lib/products";
+import { storePolicies } from "@/lib/store";
 
-function ProductInfo({ id }: Props) {
-  const dispatch = useDispatch();
-  const [quantity, setQuantity] = useState(1);
-  const [price, setPrice] = useState(0); // Initialize with 0
-  const [hoveredImage, setHoveredImage] = useState("");
+type Props = { product: Product };
 
-  // Find the product with the matching id
-  const product = productsData.find(
-    (product) => product.id === parseInt(id, 10)
-  );
+const stagger = (i: number) => ({ "--i": i }) as React.CSSProperties;
 
-  // Check if product exists
-  if (!product) {
-    return <div>Product not found</div>;
-  }
+function ProductInfo({ product }: Props) {
+  const { freeDeliveryThreshold, deliveryDays, returnDays } = storePolicies;
+  const sections = [
+    { title: "Description", body: <p>{product.details}</p>, open: true },
+    {
+      title: "Specifications",
+      body: (
+        <dl className="grid grid-cols-[8rem_1fr] gap-y-2">
+          <dt className="text-ink-soft">Brand</dt>
+          <dd>{product.brand}</dd>
+          <dt className="text-ink-soft">Category</dt>
+          <dd>{product.category}</dd>
+          <dt className="text-ink-soft">Key features</dt>
+          <dd>{product.highlights.join(", ")}</dd>
+        </dl>
+      ),
+    },
+    {
+      title: "Delivery & returns",
+      body: (
+        <p>
+          Free UK delivery on orders over {formatPrice(freeDeliveryThreshold)},
+          usually arriving in {deliveryDays}. Changed your mind? Return unused
+          items within {returnDays} days.
+        </p>
+      ),
+    },
+  ];
 
-  // Update the price whenever quantity changes
-  const updatedPrice = (newQuantity: number) => {
-    const newPrice = product.price * newQuantity;
-    setPrice(newPrice);
-  };
-
-  const handleImageHover = (imageUrl: string) => {
-    setHoveredImage(imageUrl);
-  };
-
-  const addQuantity = () => {
-    const newQuantity = quantity + 1;
-    setQuantity(newQuantity);
-    updatedPrice(newQuantity);
-  };
-
-  const subtractQuantity = () => {
-    if (quantity > 1) {
-      const newQuantity = quantity - 1;
-      setQuantity(newQuantity);
-      updatedPrice(newQuantity);
-    }
-  };
-  const addItemtoCart = () => {
-    const item = {
-      id: product.id,
-      title: product.title,
-      price: product.price,
-      mainImageUrl: product.mainImageUrl,
-      quantity: quantity,
-      totalPrice: product.price * quantity,
-    };
-    dispatch(addtoCart(item));
-    toast.success("Added to Cart", {
-      position: "top-center",
-      autoClose: 2000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-    });
-  };
-  const handleClear = () => {
-    localStorage.clear();
-  };
   return (
-    <div className="justify-start p-3 mt-12 max-w-7xl mx-auto ">
-      <h1 className=" flex font-bold text-4xl justify-center items-center mb-10">
-        {product.title}
-      </h1>
-      <div className=" grid md:grid-cols-2 md:grid-rows-1 grid-rows-2 md:gap-0 gap-10 md:h-[500px] shadow-lg">
-        <div className=" flex flex-col md:col-span-1 row-span-1 justify-center items-center borderborder-gray-200 bg-gray-100">
-          <img
-            className="md:h-[380px] h-[350px] "
-            src={hoveredImage || product.mainImageUrl}
-            alt={"main"}
-          />
-          <div className="grid grid-cols-3 h-[100px] w-[300px]">
-            <div
-              className="flex col-span-1 border hover:border-gray-400 justify-center items-center hover:scale-105"
-              onMouseEnter={() => handleImageHover(product.mainImageUrl)}
-            >
-              <img
-                className="h-[85px]"
-                src={product.mainImageUrl}
-                alt={product.title}
-              />
-            </div>
-            <div
-              className="flex col-span-1 border hover:border-gray-400 justify-center items-center hover:scale-105"
-              onMouseEnter={() => handleImageHover(product.secondImageUrl)}
-            >
-              <img
-                className="h-[85px]"
-                src={product.secondImageUrl}
-                alt={product.title}
-              />
-            </div>
-            <div
-              className="flex col-span-1 border hover:border-gray-400 justify-center items-center hover:scale-105"
-              onMouseEnter={() => handleImageHover(product.thirdImageUrl)}
-            >
-              <img
-                className="h-[85px]"
-                src={product.thirdImageUrl}
-                alt={product.title}
-              />
-            </div>
-          </div>
-        </div>
-        <div className="flex flex-col md:col-span-1 row-span-1 bg-[#e5e5e5] justify-center items-center  ">
-          <p className="flex text-center font-medium w-[85%] md:pb-8 pb-6 sm:text-base text-[14px] ">
-            {product.details}
-          </p>
-          <div className="flex flex-row justify-center items-center space-x-3">
-            <h1 className=" sm:text-xl text-lg font-semibold ">Quantity</h1>
-            <div className="grid grid-cols-3 h-16 sm:w-[190px] w-[180px]">
-              <div
-                className="flex justify-center items-center col-span-1 bg-white border border-black cursor-pointer"
-                onClick={subtractQuantity}
+    <section className="relative isolate">
+      {/* A soft wash of the product's own colours behind the top of the page,
+          made from its tiny blur placeholder, so every page gets its own tint. */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[620px] bg-cover bg-center opacity-30 blur-3xl saturate-150 [mask-image:linear-gradient(to_bottom,black,transparent)] dark:opacity-25"
+        style={{ backgroundImage: `url(${product.images[0].blurDataURL})` }}
+      />
+
+      <div className="container-page pt-6 md:pt-10">
+        <nav aria-label="Breadcrumb">
+          <ol className="flex items-center gap-1.5 text-sm text-ink-soft">
+            <li>
+              <Link href="/" className="transition-colors hover:text-ink">
+                Home
+              </Link>
+            </li>
+            <PiCaretRight size={12} aria-hidden />
+            <li>
+              <Link
+                href={`/category/${product.category}`}
+                className="transition-colors hover:text-ink"
               >
-                <AiOutlineMinus size={28} />
-              </div>
-              <div className=" flex justify-center items-center col-span-1 bg-gray-200 border border-black border-l-0 border-r-0">
-                <p className="text-2xl font-normal">{quantity}</p>
-              </div>
-              <div
-                className="flex justify-center items-center col-span-1 bg-white border border-black cursor-pointer"
-                onClick={addQuantity}
-              >
-                <BsPlus size={28} />
-              </div>
-            </div>
-            <div>
-              <h1 className="sm:text-xl text-lg font-semibold">
-                £{price !== 0 ? price : product.price}
-              </h1>
-            </div>
+                {product.category}
+              </Link>
+            </li>
+            <PiCaretRight size={12} aria-hidden />
+            <li aria-current="page" className="truncate text-ink">
+              {product.title}
+            </li>
+          </ol>
+        </nav>
+
+        <div className="mt-5 grid gap-8 md:mt-8 md:grid-cols-12 md:gap-10 lg:gap-14">
+          <div className="md:col-span-7">
+            <ProductGallery title={product.title} images={product.images} />
           </div>
-          <div className="flex flex-row space-x-20 mt-6">
-            <div
-              className="flex justify-center items-center h-12 w-[120px] bg-black hover:bg-white hover:text-black text-white hover:border-2 hover:border-black"
-              onClick={addItemtoCart}
-            >
-              <p className=" text-lg font-medium">Add to cart</p>
+
+          <div className="md:col-span-5 md:py-2">
+            <div className="enter flex items-center gap-2" style={stagger(0)}>
+              <span className="text-sm font-medium">{product.brand}</span>
+              <span className="h-1 w-1 rounded-full bg-ink-soft/50" aria-hidden />
+              <span className="text-sm text-ink-soft">{product.category}</span>
             </div>
-            <div
-              onClick={handleClear}
-              className="flex justify-center items-center h-12 w-[120px] hover:bg-red-700 bg-white text-red-700 hover:text-white hover:border-white border-2 hover:border-0 border-red-700"
+            <h1
+              className="enter mt-2 text-4xl font-semibold leading-[1.02] tracking-[-0.04em] lg:text-[3.4rem]"
+              style={stagger(0)}
             >
-              <p className=" text-lg font-medium">Buy Now</p>
+              {product.title}
+            </h1>
+            <p className="enter mt-5 flex items-baseline gap-2" style={stagger(1)}>
+              <span className="price font-display text-3xl font-semibold tracking-tight">
+                {formatPrice(product.price)}
+              </span>
+              <span className="text-sm text-ink-soft">incl. VAT</span>
+            </p>
+
+            <ul className="enter mt-7 grid grid-cols-3 gap-2" style={stagger(2)}>
+              {product.highlights.map((highlight) => (
+                <li
+                  key={highlight}
+                  className="flex flex-col gap-2 rounded-2xl bg-surface/80 p-3 text-[13px] leading-snug ring-1 ring-line/[0.06]"
+                >
+                  <PiSealCheck size={18} className="text-accent" aria-hidden />
+                  {highlight}
+                </li>
+              ))}
+            </ul>
+
+            <div className="enter mt-7" style={stagger(3)}>
+              <AddToCart
+                product={{
+                  id: product.id,
+                  title: product.title,
+                  price: product.price,
+                  mainImageUrl: product.images[0].src,
+                }}
+              />
+            </div>
+
+            <ul
+              className="enter mt-6 grid gap-2.5 text-sm text-ink-soft sm:grid-cols-3 sm:gap-3"
+              style={stagger(4)}
+            >
+              {[
+                { Icon: PiTruck, text: `Free delivery over ${formatPrice(freeDeliveryThreshold)}` },
+                { Icon: PiArrowCounterClockwise, text: `${returnDays}-day returns` },
+                { Icon: PiLockSimple, text: "Secure checkout" },
+              ].map(({ Icon, text }) => (
+                <li key={text} className="flex items-center gap-2">
+                  <Icon size={18} className="shrink-0 text-ink" aria-hidden />
+                  {text}
+                </li>
+              ))}
+            </ul>
+
+            <div
+              className="enter mt-8 divide-y divide-line/[0.08] border-y border-line/[0.08]"
+              style={stagger(5)}
+            >
+              {sections.map(({ title, body, open }) => (
+                <details key={title} open={open} className="group/section">
+                  <summary className="flex cursor-pointer list-none items-center justify-between py-4 font-medium [&::-webkit-details-marker]:hidden">
+                    {title}
+                    <PiCaretDown
+                      size={16}
+                      aria-hidden
+                      className="text-ink-soft transition-transform duration-200 ease-out group-open/section:rotate-180"
+                    />
+                  </summary>
+                  <div className="pb-5 text-[15px] leading-relaxed text-ink-soft">
+                    {body}
+                  </div>
+                </details>
+              ))}
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 
